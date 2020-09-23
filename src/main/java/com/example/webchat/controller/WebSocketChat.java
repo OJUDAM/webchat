@@ -23,12 +23,12 @@ public class WebSocketChat {
 	public WebSocketChat() {
 		System.out.println("웹소켓(서버) 객체 생성");
 	}
-	/*
+	
 	@RequestMapping(value="/")
 	public String chat(){
 		return "/WEB-INF/views/chat.jsp";
 	}
-	*/
+	
 	
 	@RequestMapping(value="/chat.do")
 	public ModelAndView getChatViewPage(ModelAndView mav) {
@@ -52,7 +52,7 @@ public class WebSocketChat {
 	}
 	
 	/*
-	 * Send All
+	  Send All
 	 */
 	private void sendAllSessionToMessage(Session self, String message) {
 		try {
@@ -71,7 +71,7 @@ public class WebSocketChat {
 		System.out.println("Message From "+message.split(",")[1]+" : "+message.split(",")[0]);
 		try {
 			final Basic basic = session.getBasicRemote();
-			basic.sendText("to : "+message);
+			basic.sendText(message.split(",")[1]+" : "+message.split(",")[0]);
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
