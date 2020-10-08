@@ -15,10 +15,28 @@
 	<!-- 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러 -->
 	<mvc:default-servlet-handler />
 
-	<context:annotation-config />
-	<context:component-scan
-		base-package="com.example.webchat.controller" />
-		
+	<mvc:annotation-driven>
+		<!-- Message Converter -->
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json; charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	<!-- MessageSource -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -28,5 +46,9 @@
 			</list>
 		</property>
 	</bean>
+
+	<context:annotation-config />
+	<context:component-scan
+		base-package="com.example.webchat.controller" />
 
 </beans>
