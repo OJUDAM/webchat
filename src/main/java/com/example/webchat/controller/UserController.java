@@ -9,6 +9,6 @@ public class UserController {
 
 	@RequestMapping("/join")
 	public String join() {
-		return "/WEB-INF/user/join.jsp";
+		return "/WEB-INF/views/user/join.jsp";
 	}
 }
