@@ -24,7 +24,7 @@ var FormValidator = {
 			this.$inputTextEmail = $( " #email ");
 			
 			this.$inputTextEmail.change( this.onEmailInputTextChanged.bind( this ));
-			this.$button.checkEmail.click( this.onCheckEmailButtonClicked.bind( this ));
+			this.$buttonCheckEmail.click( this.onCheckEmailButtonClicked.bind( this ));
 			$( " #join-form").submit( this.onFormSubmit.bind( this ));
 		},
 		onEmailInputTextChanged: function(){
