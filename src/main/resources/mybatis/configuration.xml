@@ -3,8 +3,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.example.webchat.vo.GuestBookVo" alias="guestbookvo" />
+		<typeAlias type="com.example.webchat.vo.UserVo" alias="uservo" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/guestbook.xml"/>
+		<mapper resource="mybatis/mappers/user.xml"/>
 	</mappers>
 </configuration>
