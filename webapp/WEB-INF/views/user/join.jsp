@@ -64,7 +64,7 @@ var FormValidator = {
 		},
 		onCheckEmailAjaxError: function( jqXHR, status, error){
 			console.error( status + " : "+ error);
-			alert(status + " : "+error);
+			alert(jqXHR.status + " : "+error);
 			console.log(status+" : "+ error);
 		},
 		
