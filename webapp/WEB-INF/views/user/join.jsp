@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link href="${pageContext.servletContext.contextPath }/assets/css/user.css" rel="stylesheet" type="text/css">
 <script src="${pageContext.servletContext.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 <title>회원가입</title>
@@ -64,6 +64,8 @@ var FormValidator = {
 		},
 		onCheckEmailAjaxError: function( jqXHR, status, error){
 			console.error( status + " : "+ error);
+			alert(status + " : "+error);
+			console.log(status+" : "+ error);
 		},
 		
 		onFormSubmit: function(){
