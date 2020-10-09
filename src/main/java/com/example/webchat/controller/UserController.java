@@ -20,11 +20,19 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	/*
 	@RequestMapping( value="/join", method=RequestMethod.GET)
 	public String join(Model model) {
 		model.addAttribute("userVo", new UserVo());
 		return "/WEB-INF/views/user/join.jsp";
 	}
+	*/
+	@RequestMapping( value="/join", method=RequestMethod.GET)
+	public String join(@ModelAttribute UserVo userVo) {
+		
+		return "/WEB-INF/views/user/join.jsp";
+	}
+	
 	/*
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String join(
