@@ -25,8 +25,8 @@ var FormValidator = {
 			
 			this.$inputTextEmail.change( this.onEmailInputTextChanged.bind( this ));
 			this.$buttonCheckEmail.click( this.onCheckEmailButtonClicked.bind( this ));
-			$( " #join-form").submit( this.onFormSubmit.bind( this ));
 		},
+		
 		onEmailInputTextChanged: function(){
 			this.$imageCheck.hide();
 			this.$buttonCheckEmail.show();
@@ -66,43 +66,11 @@ var FormValidator = {
 			console.error( status + " : "+ error);
 			alert(jqXHR.responseText + " : "+error);
 			console.log(status+" : "+ error);
-		},
-		
-		onFormSubmit: function(){
-			var $inputTextName = $("#name");
-			if( $inputTextName.val() === ""){
-				alert(" 이름은 필수 항목입니다.");
-				this.$inputTextName.focus();
-				return false;
-			}
-			
-			var $email = $("#email");
-			if (this.$inputTextEmail.val() === ""){
-				alert("이메일은 필수 항목입니다. ");
-				this.$inputTextEmail.focus();
-				return false;
-			}
-			
-			var $inputPassword = $( "#password");
-			if( $inputPassword.val() === ""){
-				alert( "비밀번호는 필수 항목입니다. ");
-				$inputPassword.focus();
-				return false;
-			}
-			
-			var $inputCheckBoxAgree = $("#agree-prov");
-			if($inputCheckBoxAgree.is(":checked") === false){
-				alert("가입 약관에 동의 하셔야 합니다.");
-				$inputCheckBoxAgree.focus();
-				return false;
-			}
-			
-			return true;
 		}
 }
 $(function(){
-	//자바스크립트로 유효성검사
-	//FormValidator.init();
+	//이메일 체크
+	FormValidator.init();
 });
 </script>
 </head>
@@ -131,7 +99,7 @@ $(function(){
 						</c:if>
 					</spring:hasBindErrors>
 					<label class="block-label" for="email">이메일</label>
-					<form:input path="email"/>
+					<form:input id="email" path="email"/>
 					
 					<%-- <input type="text" id="email" name="email" value="${userVo.email }"/>
 					 --%>

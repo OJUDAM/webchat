@@ -43,6 +43,6 @@ public class UserController {
 			
 		}
 		userService.join(userVo);
-		return "redirect:/user/joinsuccess";
+		return "redirect:/WEB-INF/views/user/joinsuccess.jsp";
 	}
 }
