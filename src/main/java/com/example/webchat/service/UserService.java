@@ -17,4 +17,9 @@ public class UserService {
 		return userVo != null;
 	}
 
+	public void join(UserVo userVo) {
+		userRepository.insert(userVo);
+		
+	}
+
 }

@@ -15,5 +15,9 @@ public class UserRepository {
 	public UserVo get(String email) {
 		return sqlSession.selectOne("user.getByEmail",email);
 	}
+
+	public void insert(UserVo userVo) {
+		sqlSession.insert("user.insert",userVo);
+	}
 	
 }

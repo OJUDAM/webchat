@@ -33,19 +33,16 @@ public class UserController {
 		return "/WEB-INF/views/user/join.jsp";
 	}
 	
-	/*
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String join(
 			@ModelAttribute @Valid UserVo userVo,
-			BindingResult result,
-			Model model) {
+			BindingResult result) {
 		if(result.hasErrors()) {
 			System.out.println("error");
-			model.addAllAttributes(result.getModel());
 			return "/WEB-INF/views/user/join.jsp";
 			
 		}
 		userService.join(userVo);
 		return "redirect:/user/joinsuccess";
-	}*/
+	}
 }

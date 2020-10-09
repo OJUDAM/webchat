@@ -8,4 +8,11 @@
 			where email=#{email}
 		]]>
 	</select>
+	<insert id="insert" parameterType="uservo">
+		<![CDATA[
+			insert
+			 into user 
+			values (null, #{name},#{email},#{password},#{gender},'USER') 
+		]]>
+	</insert>
 </mapper>
