@@ -133,8 +133,9 @@ $(function(){
 					<label class="block-label" for="email">이메일</label>
 					<form:input path="email"/>
 					
-					<input type="text" id="email" name="email" value="${userVo.email }"/>
-					<img id="img-checkemail" style="width:25px; display:none" src="${pageContext.servletContext.contextPath }/assets/images/check.png"/>
+					<%-- <input type="text" id="email" name="email" value="${userVo.email }"/>
+					 --%>
+					 <img id="img-checkemail" style="width:25px; display:none" src="${pageContext.servletContext.contextPath }/assets/images/check.png"/>
 					<input id="btn-checkemail" type="button" value="이메일확인">
 					<p style="margin: 0; padding:0; font-weight:bold; color:red; text-align:left">
 						<form:errors path="email"/>
