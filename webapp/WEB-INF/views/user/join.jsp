@@ -102,7 +102,7 @@ var FormValidator = {
 }
 $(function(){
 	//자바스크립트로 유효성검사
-	FormValidator.init();
+	//FormValidator.init();
 });
 </script>
 </head>
