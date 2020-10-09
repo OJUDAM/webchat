@@ -43,6 +43,11 @@ public class UserController {
 			
 		}
 		userService.join(userVo);
-		return "redirect:/WEB-INF/views/user/joinsuccess.jsp";
+		return "redirect:/user/joinsuccess";
+	}
+	
+	@RequestMapping("/joinsuccess")
+	public String joinsuccess() {
+		return "/WEB-INF/views/user/joinsuccess.jsp";
 	}
 }
