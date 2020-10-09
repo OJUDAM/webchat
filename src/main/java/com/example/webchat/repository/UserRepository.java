@@ -1,5 +1,8 @@
 package com.example.webchat.repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,9 +18,15 @@ public class UserRepository {
 	public UserVo get(String email) {
 		return sqlSession.selectOne("user.getByEmail",email);
 	}
+	
+	public UserVo get(String email, String password) {
+		Map<String, String> map = new HashMap<>();
+		map.put("email", email);
+		map.put("password", password);
+		return sqlSession.selectOne("user.getByEmailAndPassword",map);
+	}
 
 	public void insert(UserVo userVo) {
 		sqlSession.insert("user.insert",userVo);
 	}
-	
 }

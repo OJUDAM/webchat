@@ -87,7 +87,7 @@ $(function(){
 					action="${pageContext.servletContext.contextPath }/user/join">
 					<label class="block-label" for="name">이름</label>
 					<input id="name" name="name" type="text" value="${userVo.name }">
-					<!-- Hivernate-Validtion -->
+					<!-- binderror message -->
 					<spring:hasBindErrors name="userVo">
 						<c:if test="${errors.hasFieldErrors('name') }">
 							<p style="padding: 5px 0 0 0; text-align: left; color: red">

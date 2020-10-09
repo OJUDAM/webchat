@@ -15,4 +15,12 @@
 			values (null, #{name},#{email},#{password},#{gender},'USER') 
 		]]>
 	</insert>
+	<select id="getByEmailAndPassword" resultType="uservo" parameterType="map">
+		<![CDATA[
+			select no, name, role
+ 			 from user 
+			where email='dhwnkea@naver.com'
+ 			 and password = 'tlqkf123';
+		]]>
+	</select>
 </mapper>

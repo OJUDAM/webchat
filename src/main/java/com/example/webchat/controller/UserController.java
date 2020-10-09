@@ -46,6 +46,11 @@ public class UserController {
 		return "redirect:/user/joinsuccess";
 	}
 	
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public String login() {
+		return "/WEB-INF/views/user/login.jsp";
+	}
+	
 	@RequestMapping("/joinsuccess")
 	public String joinsuccess() {
 		return "/WEB-INF/views/user/joinsuccess.jsp";

@@ -19,7 +19,10 @@ public class UserService {
 
 	public void join(UserVo userVo) {
 		userRepository.insert(userVo);
-		
+	}
+
+	public UserVo getUser(String email, String password) {
+		return userRepository.get(email, password);
 	}
 
 }
