@@ -11,7 +11,7 @@
 <link href="${pageContext.servletContext.contextPath }/assets/css/user.css" rel="stylesheet" type="text/css">
 <c:if test='${userVo == null }'>
 	<script>
-		alert( "userVo Error");
+		alert( "서버 오류");
 	</script>
 </c:if>
 </head>
@@ -25,7 +25,7 @@
 					<input id="name" name="name" type="text" value="${userVo.name }">
 					
 					<label class="block-label" for="email">이메일</label>
-					<h3>${userVo.email }asd</h3>
+					<h3>${userVo.email }</h3>
 					
 					<label class="block-label">패스워드</label>
 					<input name="password" type="password" value="">
