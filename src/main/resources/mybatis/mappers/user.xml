@@ -19,8 +19,8 @@
 		<![CDATA[
 			select no, name, role
  			 from user 
-			where email='dhwnkea@naver.com'
- 			 and password = 'tlqkf123';
+			where email=#{email}
+ 			 and password =#{password}
 		]]>
 	</select>
 </mapper>
