@@ -17,8 +17,12 @@
 	<!-- Interceptors -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/user/auth"/>
-			<bean class="com.example.security.AuthLoginInterceptor"/>
+			<mvc:mapping path="/user/auth" />
+			<bean class="com.example.security.AuthLoginInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/user/logout" />
+			<bean class="com.example.security.AuthLogoutInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	<!-- MessageSource -->
