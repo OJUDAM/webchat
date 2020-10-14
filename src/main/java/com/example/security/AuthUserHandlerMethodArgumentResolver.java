@@ -19,7 +19,7 @@ public class AuthUserHandlerMethodArgumentResolver implements HandlerMethodArgum
 		AuthUser authUser=
 				parameter.getParameterAnnotation( AuthUser.class );
 		
-		//@@AuthUSer 가 안붙어 있음
+		//@@AuthUser 가 안붙어 있음
 		if(authUser == null)
 		{
 			return false;
