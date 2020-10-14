@@ -58,10 +58,10 @@ public class UserController {
 	}
 	
 	@Auth(Auth.Role.USER)
-	@RequestMapping(value="/modifiy", method=RequestMethod.GET)
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
 	public String modify(@ModelAttribute @AuthUser UserVo authUser) {
 		UserVo userVo = userService.getUser( authUser.getNo() );
 		
-		return "/WEB-INF/views/user/modify.jsp";
+		return "/WEB-INF/views/user/modify";
 	}
 }
