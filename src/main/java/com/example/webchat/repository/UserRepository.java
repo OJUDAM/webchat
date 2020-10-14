@@ -29,4 +29,8 @@ public class UserRepository {
 	public void insert(UserVo userVo) {
 		sqlSession.insert("user.insert",userVo);
 	}
+
+	public UserVo get(Long no) {
+		return sqlSession.selectOne("user.getByNo",no);
+	}
 }

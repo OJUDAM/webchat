@@ -4,12 +4,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.security.Auth;
+import com.example.security.AuthUser;
 import com.example.webchat.service.UserService;
 import com.example.webchat.vo.UserVo;
 
@@ -54,5 +55,13 @@ public class UserController {
 	@RequestMapping("/joinsuccess")
 	public String joinsuccess() {
 		return "/WEB-INF/views/user/joinsuccess.jsp";
+	}
+	
+	@Auth(Auth.Role.USER)
+	@RequestMapping(value="/modifiy", method=RequestMethod.GET)
+	public String modify(@ModelAttribute @AuthUser UserVo authUser) {
+		UserVo userVo = userService.getUser( authUser.getNo() );
+		
+		return "/WEB-INF/views/user/modify";
 	}
 }

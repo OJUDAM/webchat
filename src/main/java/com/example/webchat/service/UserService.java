@@ -25,4 +25,9 @@ public class UserService {
 		return userRepository.get(email, password);
 	}
 
+	public UserVo getUser(Long no) {
+	
+		return userRepository.get(no);
+	}
+
 }

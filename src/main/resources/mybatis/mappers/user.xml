@@ -23,4 +23,11 @@
  			 and password =#{password}
 		]]>
 	</select>
+	<select id="getByNo" resultType="uservo" parameterType="long">
+		<![CDATA[
+			select no, name, email, gender
+			 from user
+			where no=#{no}
+		]]>
+	</select>
 </mapper>
