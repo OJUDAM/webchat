@@ -9,6 +9,11 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>개인정보 수정</title>
 <link href="${pageContext.servletContext.contextPath }/assets/css/user.css" rel="stylesheet" type="text/css">
+<c:if test='${userVo == null }'>
+	<script>
+		alert( "userVo Error");
+	</script>
+</c:if>
 </head>
 <body>
 	<div id="container">
