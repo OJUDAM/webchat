@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <title>개인정보 수정</title>
 <link href="${pageContext.servletContext.contextPath }/assets/css/user.css" rel="stylesheet" type="text/css">
 </head>
@@ -20,7 +20,7 @@
 					<input id="name" name="name" type="text" value="${userVo.name }">
 					
 					<label class="block-label" for="email">이메일</label>
-					<h3>${userVo.email }</h3>
+					<h3>${userVo.email }asd</h3>
 					
 					<label class="block-label">패스워드</label>
 					<input name="password" type="password" value="">
