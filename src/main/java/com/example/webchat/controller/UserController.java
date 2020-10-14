@@ -62,6 +62,6 @@ public class UserController {
 	public String modify(@ModelAttribute @AuthUser UserVo authUser) {
 		UserVo userVo = userService.getUser( authUser.getNo() );
 		
-		return "/WEB-INF/views/user/modify";
+		return "/WEB-INF/views/user/modify.jsp";
 	}
 }
