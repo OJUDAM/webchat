@@ -33,4 +33,8 @@ public class UserRepository {
 	public UserVo get(Long no) {
 		return sqlSession.selectOne("user.getByNo",no);
 	}
+
+	public int update(UserVo userVo) {
+		return sqlSession.update("user.update",userVo);
+	}
 }

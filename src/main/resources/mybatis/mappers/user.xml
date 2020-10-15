@@ -30,4 +30,19 @@
 			where no=#{no}
 		]]>
 	</select>
+	<update id="update" parameterType="uservo">
+		<![CDATA[
+			update user
+			 set name=#{name},
+		]]>
+			 <if test="password != ''">
+				<![CDATA[
+					password=#{password},
+				]]> 
+			 </if>
+		<![CDATA[
+			gender=#{gender}
+			 where no = #{no}
+		]]>
+	</update>
 </mapper>

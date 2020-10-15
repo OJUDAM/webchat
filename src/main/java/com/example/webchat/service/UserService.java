@@ -29,4 +29,9 @@ public class UserService {
 		return userRepository.get(no);
 	}
 
+	public boolean modifyUser(UserVo userVo) {
+		
+		return userRepository.update( userVo ) == 1;
+	}
+
 }

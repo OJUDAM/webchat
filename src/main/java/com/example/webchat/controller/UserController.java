@@ -66,4 +66,16 @@ public class UserController {
 		System.out.println("asdfasdf"+authUser.getNo());
 		return "/WEB-INF/views/user/modify.jsp";
 	}
+	
+	@Auth
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modify(
+			@AuthUser UserVo authUser,
+			@ModelAttribute UserVo userVo) {
+		userVo.setNo( authUser.getNo() );
+		userService.modifyUser( userVo );
+		
+		authUser.setName( userVo.getName() );
+		return "redirect:/user/modify?result=success";
+	}
 }
