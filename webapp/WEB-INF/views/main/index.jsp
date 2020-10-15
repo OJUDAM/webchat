@@ -24,7 +24,7 @@
             return;
         }
         //웹소켓 객체 만드는 코드
-        ws=new WebSocket("ws://127.0.0.1:8080/webchat/echo.do");
+        ws=new WebSocket("ws://djam1020.gq/webchat/echo.do");
         
         ws.onopen=function(event){
             if(event.data===undefined) return;
