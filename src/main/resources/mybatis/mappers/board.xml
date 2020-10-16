@@ -49,7 +49,7 @@
 				<![CDATA[
 					select count(*)
 					 from board
-					where (title like '%${_pagameter}%' or content like '%${_parameter}%')
+					where (title like '%${_parameter}%' or content like '%${_parameter}%')
 				]]>
 			</otherwise>
 		</choose>
