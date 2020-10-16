@@ -10,7 +10,7 @@
 					       a.hit,
 					       date_format(a.reg_date, '%Y-%m-%d %p %h:%i:%s') as regDate,
 					       a.depth,
-					       b.name as userName;
+					       b.name as userName,
 					       a.user_no as userNo
 					  from board a, user b
 					  where a.user_no = b.no
@@ -21,6 +21,7 @@
 			<otherwise>
 				<![CDATA[
 					select a.no,
+						   a.title,
 					       a.hit,
 					       date_format(a.reg_date, '%Y-%m-%d %p %h:%i:%s') as regDate,
 					       a.depth,
