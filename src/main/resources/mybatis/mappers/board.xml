@@ -3,7 +3,7 @@
 <mapper namespace="board">
 	<select id="getList" parameterType="map" resultType="boardvo">
 		<choose>
-			<when test="keyword == null or keyword=''">
+			<when test="keyword == null or keyword==''">
 				<![CDATA[
 					select a.no,
 					       a.title,
