@@ -35,4 +35,22 @@
 			</otherwise>
 		</choose>
 	</select>
+	<select id="getTotalCount" parameterType="string" resultType="integer">
+		<choose>
+			<when test="_parameter == null or _parameter == ''">
+				<![CDATA[
+					select
+					 count(*) 
+					from board
+				]]>
+			</when>
+			<otherwise>
+				<![CDATA[
+					select count(*)
+					 from board
+					where (title like '%${_pagameter}%' or content like '%${_parameter}%')
+				]]>
+			</otherwise>
+		</choose>
+	</select>
 </mapper>
