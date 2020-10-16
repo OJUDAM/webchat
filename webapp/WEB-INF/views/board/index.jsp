@@ -61,6 +61,7 @@
 				</table>
 				<!-- 페이징 -->
 				<div class="pager">
+					<ul>
 					<c:if test="${map.prevPage > 0 }">
 						<li><a href="${pageContext.request.contextPath }/board?p=${map.prevPage}&kwd=${map.keyword}">◀</a></li>
 					</c:if>
@@ -81,6 +82,7 @@
 					<c:if test="${map.nextPage > 0 }">
 						<li><a href="${pageContext.request.contextPath }/board?p=${map.nextPage}&kwd=${map.keyowrd}">▶</a></li>
 					</c:if>
+					</ul>
 				</div>
 				<div class="bottom">
 					<!-- 글쓰기 작업 -->
