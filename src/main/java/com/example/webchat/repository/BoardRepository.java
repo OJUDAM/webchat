@@ -41,4 +41,13 @@ public class BoardRepository {
 		return sqlSession.insert("board.insert", boardVo);
 	}
 
+	public BoardVo get(Long no) {
+		return sqlSession.selectOne("board.getByNo",no);
+	}
+
+	public int updateHit(Long no) {
+		return sqlSession.update("board.updateHit",no);
+		
+	}
+
 }

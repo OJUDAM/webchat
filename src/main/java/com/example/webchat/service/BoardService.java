@@ -82,5 +82,13 @@ public class BoardService {
 	public boolean addMessage(BoardVo boardVo) {
 		return boardRepository.insert( boardVo ) == 1;
 	}
+
+	public BoardVo getMessage(Long no) {
+		BoardVo boardVo = boardRepository.get(no);
+		if( boardVo != null) {
+			boardRepository.updateHit(no);
+		}
+		return boardVo;
+	}
 	
 }

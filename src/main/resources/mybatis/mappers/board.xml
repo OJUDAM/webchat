@@ -97,4 +97,26 @@
 			</otherwise>
 		</choose>
 	</insert>
+	
+	<select id="getByNo" parameterType="long" resultType="boardvo">
+		<![CDATA[
+			select a.no,
+				   a.title,
+				   a.content,
+				   a.group_no as groupNo,
+				   a.order_no as orderNo,
+				   a.depth,
+				   a.user_no as userNo,
+				   b.name as userName
+			from board a, user b
+			 where a.no = #{no} and a.user_no = b.no
+		]]>
+	</select>
+	<update id="updateHit" parameterType="long">
+		<![CDATA[
+			update board
+			 set hit = hit+1
+			where no=#{no}
+		]]>
+	</update>
 </mapper>
