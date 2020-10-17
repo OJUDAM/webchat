@@ -24,6 +24,10 @@
 						<td>${boardVo.title}</td>
 					</tr>
 					<tr>
+						<td class="label">이름</td>
+						<td>${boardVo.userName}</td>
+					</tr>
+					<tr>
 						<td class="label">내용</td>
 						<td>
 							<div class="view-content">
