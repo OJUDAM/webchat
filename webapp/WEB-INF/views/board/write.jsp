@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-<link href="${pageContext.request.contextPath }/asstes/css/board.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/assets/css/board.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="container">
