@@ -37,7 +37,7 @@
 					<c:if test="${not empty authUser }">
 						<!-- 댓글 작업 -->
 					</c:if>
-					<c:if text="${authUser.no == boardVo.userNO }">
+					<c:if test="${authUser.no == boardVo.userNO }">
 						<!-- 수정 작업 -->
 					</c:if>
 				</div>
