@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<td class="label">제목</td>
-						<td>%{boardVo.title}</td>
+						<td>${boardVo.title}</td>
 					</tr>
 					<tr>
 						<td class="label">내용</td>
@@ -43,6 +43,10 @@
 				</div>
 			</div>
 		</div>
+		<c:import url="/WEB-INF/views/include/navigation.jsp">
+			<c:param name="menu" value="board"/>
+		</c:import>
+		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</div>
 </body>
 </html>
