@@ -30,4 +30,15 @@ public class BoardRepository {
 		return sqlSession.selectList("board.getList", map);
 	}
 
+	public int updateOrderNo(Integer groupNo, Integer orderNo) {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("groupNo", groupNo);
+		map.put("orderNo", orderNo);
+		return sqlSession.update("board.updateOrderNo", map);
+	}
+
+	public int insert(BoardVo boardVo) {
+		return sqlSession.insert("board.insert", boardVo);
+	}
+
 }

@@ -85,7 +85,9 @@
 					</ul>
 				</div>
 				<div class="bottom">
-					<!-- 글쓰기 작업 -->
+					<c:if test="${not empty authUser }">
+						<a href="${pageContext.request.contextPath }/board/write?p=${map.currentPage}&kwd=${map.keyword}" id="new-book">글쓰기</a>
+					</c:if>
 				</div>
 			</div>
 		</div>

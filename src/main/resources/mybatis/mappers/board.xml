@@ -54,4 +54,47 @@
 			</otherwise>
 		</choose>
 	</select>
+	<update id="updateOrderNo" parameterType="map">
+		<![CDATA[
+			update board
+			 set order_no = order_no+1
+			where group_no = #{groupNo}
+			 and order_no>= #{orderNo}
+		]]>
+	</update>
+	<insert id="insert" parameterType="boardvo">
+		<choose>
+			<when test="groupNo == null">
+				<![CDATA[
+				insert
+			 	 into board
+				values( null, 
+					#{title},
+					#{content},
+					0,
+					now(),
+					( select ifnull( max( group_no ), 0)+1
+					 from board a),
+					 1,
+					 0,
+					 #{userNo} )
+				]]>
+			</when>
+			<otherwise>
+				<![CDATA[
+					insert
+					 into board
+					values (null,
+							#{title},
+							#{content},
+							0,
+							now(),
+							#{groupNo},
+							#{orderNo},
+							#{depth},
+							#{userNo} )
+				]]>
+			</otherwise>
+		</choose>
+	</insert>
 </mapper>

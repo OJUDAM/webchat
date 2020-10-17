@@ -74,5 +74,13 @@ public class BoardService {
 		
 		return map;
 	}
+
+	public boolean increaseGroupOrderNo(BoardVo boardVo) {
+		return boardRepository.updateOrderNo( boardVo.getGroupNo(), boardVo.getOrderNo()) > 0;
+	}
+
+	public boolean addMessage(BoardVo boardVo) {
+		return boardRepository.insert( boardVo ) == 1;
+	}
 	
 }
