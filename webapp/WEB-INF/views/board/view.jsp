@@ -40,6 +40,7 @@
 					<a href="${pageContext.request.contextPath }/board?p=${param.p }&kwd=${param.kwd }">글목록</a>
 					<c:if test="${not empty authUser }">
 						<!-- 댓글 작업 -->
+						<a href="${pageContext.request.contextPath }/board/reply/${boardVo.no}?p=${param.p}&kwd=${param.kwd}">답글 달기</a>
 					</c:if>
 					<c:if test="${authUser.no == boardVo.userNo }">
 						<!-- 수정 작업 -->
