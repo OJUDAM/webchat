@@ -90,5 +90,10 @@ public class BoardService {
 		}
 		return boardVo;
 	}
+
+	public List<BoardVo> getReplyList(Long startNo, Long no) {
+		
+		return boardRepository.getReplyList(startNo, no );
+	}
 	
 }
