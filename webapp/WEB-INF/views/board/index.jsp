@@ -78,7 +78,7 @@
 								<li class="selected">${page }</li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath }/board?p=${page }&kwd=${map.keyword }"></a></li>
+								<li><a href="${pageContext.request.contextPath }/board?p=${page }&kwd=${map.keyword }">${page }</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
