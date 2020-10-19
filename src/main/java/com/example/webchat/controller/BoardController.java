@@ -89,4 +89,18 @@ public class BoardController {
 		
 		return "/WEB-INF/views/board/modify.jsp";
 	}
+	
+	@Auth
+	@RequestMapping(value="/modify" ,method=RequestMethod.POST)
+	public String modify(
+			@AuthUser UserVo authUser,
+			@ModelAttribute BoardVo boardVo,
+			@RequestParam( value="p", required=true, defaultValue="1") Integer page,
+			@RequestParam( value="kwd", required=true, defaultValue="") String keyword) {
+			
+		boardVo.setUserNo(authUser.getNo());
+		boardService.modifyMessage(boardVo);
+		return "redirect:/board/view/"+boardVo.getNo()+
+				"?p="+page+"&kwd="+WebUtil.encodeURL(keyword, "UTF-8");
+	}
 }

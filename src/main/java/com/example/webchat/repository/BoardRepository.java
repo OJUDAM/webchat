@@ -65,4 +65,9 @@ public class BoardRepository {
 		return sqlSession.selectOne("board.getByNoAndUserNo",map);
 	}
 
+	public int update(BoardVo boardVo) {
+		
+		return sqlSession.update("board.update",boardVo);
+	}
+
 }

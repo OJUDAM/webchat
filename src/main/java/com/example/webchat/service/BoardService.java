@@ -100,5 +100,9 @@ public class BoardService {
 		BoardVo boardVo = boardRepository.get(no, userNo);
 		return boardVo;
 	}
+
+	public boolean modifyMessage(BoardVo boardVo) {
+		return boardRepository.update(boardVo)==1;
+	}
 	
 }
