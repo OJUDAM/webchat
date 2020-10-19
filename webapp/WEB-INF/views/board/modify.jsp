@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="container">
-		<c:import url="/WEB-INF/views/include/hearder.jsp"/>
+		<c:import url="/WEB-INF/views/include/header.jsp"/>
 		<div id="content">
 			<div id="board">
 				<form class="board-form" method="post" action="${pageContext.request.contextPath }/board/modify">
