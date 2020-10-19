@@ -58,4 +58,11 @@ public class BoardRepository {
 		return list;
 	}
 
+	public BoardVo get(Long no, Long userNo) {
+		Map<String, Long> map = new HashMap<>();
+		map.put("no",no);
+		map.put("userNo", userNo);
+		return sqlSession.selectOne("board.getByNoAndUserNo",map);
+	}
+
 }

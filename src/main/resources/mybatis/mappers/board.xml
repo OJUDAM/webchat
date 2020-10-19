@@ -142,4 +142,13 @@
 			where no=#{no}
 		]]>
 	</update>
+	<select id="getByNoAndUserNo" resultType="boardvo" parameterType="map">
+		<![CDATA[
+			select no,
+				   title,
+				   content,
+				from board
+				 where no=#{no} and user_no=#{userNo}
+		]]>
+	</select>
 </mapper>

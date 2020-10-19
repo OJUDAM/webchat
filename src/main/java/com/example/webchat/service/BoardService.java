@@ -95,5 +95,10 @@ public class BoardService {
 		
 		return boardRepository.getReplyList(startNo, no );
 	}
+
+	public BoardVo getMessage(Long no, Long userNo) {
+		BoardVo boardVo = boardRepository.get(no, userNo);
+		return boardVo;
+	}
 	
 }

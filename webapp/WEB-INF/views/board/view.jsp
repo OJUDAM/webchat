@@ -43,7 +43,7 @@
 						<a href="${pageContext.request.contextPath }/board/reply/${boardVo.no}?p=${param.p}&kwd=${param.kwd}">답글 달기</a>
 					</c:if>
 					<c:if test="${authUser.no == boardVo.userNo }">
-						<!-- 수정 작업 -->
+						<a href="${pageContext.request.contextPath }/board/modify/${boardVo.no}?p=${param.p}&kwd=${param.kwd}">수정하기</a>
 					</c:if>
 				</div>
 			</div>

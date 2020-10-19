@@ -60,7 +60,7 @@ public class BoardController {
 				"redirect:/board?p="+page+"&kwd="+WebUtil.encodeURL( keyword, "UTF-8"):
 				"redirect:/board";
 	}
-	
+
 	@RequestMapping("/view/{no}")
 	public String view(@PathVariable("no") Long no, Model model) {
 		BoardVo boardVo = boardService.getMessage(no);
@@ -78,5 +78,15 @@ public class BoardController {
 		model.addAttribute("boardVo", boardVo);
 		
 		return "/WEB-INF/views/board/reply.jsp";
+	}
+	
+	@Auth
+	@RequestMapping("/modify/{no}")
+	public String modify(@AuthUser UserVo authUser,
+			@PathVariable("no") Long no, Model model) {
+		BoardVo boardVo = boardService.getMessage(no, authUser.getNo());
+		model.addAttribute("boardVo",boardVo);
+		
+		return "/WEB-INF/views/board/modify.jsp";
 	}
 }
