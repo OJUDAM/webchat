@@ -50,8 +50,8 @@ public class BoardRepository {
 		
 	}
 
-	public List<BoardVo> getReplyList(Long startNo, Long no) {
-		Map<String, Long> map = new HashMap<>();
+	public List<BoardVo> getReplyList(Long startNo, Integer no) {
+		Map<String, Object> map = new HashMap<>();
 		map.put("startNo", startNo);
 		map.put("no", no);
 		List<BoardVo> list = sqlSession.selectList("board.getReplyList", map);

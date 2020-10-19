@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,9 +24,10 @@ public class BoardController {
 	@RequestMapping("/list")
 	public JSONResult list( 
 			@RequestParam(value="sno", required=true, defaultValue="0") Long startNo,
-			@PathVariable(" no ") Long no, Model model){
+			@RequestParam(value="gno", required=true, defaultValue="0") Integer groupNo,
+			Model model){
 				
-			List<BoardVo> list = boardService.getReplyList(startNo, no);
+			List<BoardVo> list = boardService.getReplyList(startNo, groupNo);
 			return JSONResult.success(list);
 	}
 		
