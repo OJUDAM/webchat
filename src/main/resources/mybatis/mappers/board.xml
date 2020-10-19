@@ -146,7 +146,7 @@
 		<![CDATA[
 			select no,
 				   title,
-				   content,
+				   content
 				from board
 				 where no=#{no} and user_no=#{userNo}
 		]]>
