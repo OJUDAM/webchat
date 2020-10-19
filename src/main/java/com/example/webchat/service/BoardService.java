@@ -104,5 +104,9 @@ public class BoardService {
 	public boolean modifyMessage(BoardVo boardVo) {
 		return boardRepository.update(boardVo)==1;
 	}
+
+	public boolean deleteMessage(Long no, Long userNo) {
+		return boardRepository.delete(no, userNo) ==1;
+	}
 	
 }

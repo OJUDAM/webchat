@@ -70,4 +70,11 @@ public class BoardRepository {
 		return sqlSession.update("board.update",boardVo);
 	}
 
+	public int delete(Long no, Long userNo) {
+		Map<String, Long> map = new HashMap<>();
+		map.put("no", no);
+		map.put("userNo", userNo);
+		return sqlSession.delete("board.delete",map);
+	}
+
 }

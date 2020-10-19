@@ -103,4 +103,16 @@ public class BoardController {
 		return "redirect:/board/view/"+boardVo.getNo()+
 				"?p="+page+"&kwd="+WebUtil.encodeURL(keyword, "UTF-8");
 	}
+	
+	@RequestMapping("/delete/{no}")
+	public String delete(
+			@AuthUser UserVo authUser,
+			@RequestParam(value="p", required=true, defaultValue="1") Integer page,
+			@RequestParam(value="kwd", required=true, defaultValue="") String keyword,
+			@PathVariable("no") Long no) {
+		boardService.deleteMessage(no, authUser.getNo());
+		
+		return "redirect:/board?p="+page+
+				"&kwd="+WebUtil.encodeURL(keyword, "UTF-8");
+	}
 }

@@ -52,7 +52,7 @@
 							<td>
 								<c:choose>
 									<c:when test="${not empty authUser && authUser.no == vo.userNo }">
-										<!-- 자기가 쓴 글이면 삭제 -->
+										<a href="${pageContext.request.contextPath }/board/delete/${boardVo.no}?p=${map.currentPage}&kwd=${map.keyowrd}" class="del">삭제</a>
 									</c:when>
 									<c:otherwise>
 										&nbsp;
