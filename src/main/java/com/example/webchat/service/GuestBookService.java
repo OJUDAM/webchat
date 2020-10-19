@@ -24,7 +24,10 @@ public class GuestBookService {
 		//성공시 행의 갯수(1) 없으면 0
 		int count = guestbookRepository.delete(no);
 		return count==1;
+	}
+	public List<GuestBookVo> getMessageList(Long startNo){
 		
+		return guestbookRepository.getList(startNo);
 	}
 	
 }

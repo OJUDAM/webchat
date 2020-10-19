@@ -27,4 +27,8 @@ public class GuestBookRepository {
 		return count;
 	}
 
+	public List<GuestBookVo> getList(Long startNo) {
+		return sqlSession.selectList("guestbook.getList2",startNo);
+	}
+
 }
