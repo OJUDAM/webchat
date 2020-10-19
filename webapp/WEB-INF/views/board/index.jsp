@@ -52,7 +52,7 @@
 							<td>
 								<c:choose>
 									<c:when test="${not empty authUser && authUser.no == vo.userNo }">
-										<a href="${pageContext.request.contextPath }/board/delete/${boardVo.no}?p=${map.currentPage}&kwd=${map.keyowrd}" class="del">삭제</a>
+										<a href="${pageContext.request.contextPath }/board/delete/${vo.no}?p=${map.currentPage}&kwd=${map.keyowrd}" class="del">삭제</a>
 									</c:when>
 									<c:otherwise>
 										&nbsp;
