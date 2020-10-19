@@ -67,4 +67,16 @@ public class BoardController {
 		model.addAttribute("boardVo",boardVo);
 		return "/WEB-INF/views/board/view.jsp";
 	}
+	
+	@RequestMapping("/reply/{no}")
+	public String reply(@PathVariable("no") Long no, Model model) {
+		
+		BoardVo boardVo = boardService.getMessage(no);
+		boardVo.setOrderNo(boardVo.getOrderNo()+1);
+		boardVo.setDepth(boardVo.getDepth()+1);
+		
+		model.addAttribute("boardVo", boardVo);
+		
+		return "/WEB-INF/views/board/reply.jsp";
+	}
 }
