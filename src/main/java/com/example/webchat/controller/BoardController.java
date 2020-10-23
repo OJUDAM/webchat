@@ -133,4 +133,6 @@ public class BoardController {
 		model.addAttribute("boardVo",boardVo);
 		return "/WEB-INF/views/board/view-ajax.jsp";
 	}
+	
+	
 }

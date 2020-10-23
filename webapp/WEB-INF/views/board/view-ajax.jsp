@@ -38,18 +38,20 @@
 				</table>
 				<div class="bottom">
 					<a href="${pageContext.request.contextPath }/board?p=${param.p }&kwd=${param.kwd }">글목록</a>
-					<c:if test="${not empty authUser }">
-						<!-- 댓글 작업 -->
-						<a href="${pageContext.request.contextPath }/board/reply/${boardVo.no}?p=${param.p}&kwd=${param.kwd}">답글 달기</a>
-					</c:if>
 					<c:if test="${authUser.no == boardVo.userNo }">
 						<a href="${pageContext.request.contextPath }/board/modify/${boardVo.no}?p=${param.p}&kwd=${param.kwd}">수정하기</a>
 					</c:if>
 				</div>
+				<form id="add-form" action="" method="post">
+					<input type="text" id="input-name" placeholder="이름">
+					<input type="password" id="input-password" placeholder="비밀번호">
+					<textarea id="ta-message" placeholder="내용을 입력해주세요"></textarea>
+					<input type="submit" value="보내기">
+				</form>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/include/navigation.jsp">
-			<c:param name="menu" value="board"/>
+			<c:param name="menu" value="board/ajax"/>
 		</c:import>
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</div>

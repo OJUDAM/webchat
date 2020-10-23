@@ -1,24 +1,21 @@
 package com.example.webchat.controller.api;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.webchat.dto.JSONResult;
-import com.example.webchat.service.BoardService;
-import com.example.webchat.vo.BoardVo;
+import com.example.webchat.service.ReplyService;
+import com.example.webchat.vo.ReplyVo;
 
 @Controller("BoardControllerApi")
 @RequestMapping("/board/api")
 public class BoardController {
 	
 	@Autowired
-	private BoardService boardService;
+	private ReplyService replyService;
 	/*
 	@ResponseBody
 	@RequestMapping("/list")
@@ -31,5 +28,12 @@ public class BoardController {
 			return JSONResult.success(list);
 	}
 	*/	
-
+	@ResponseBody
+	@RequestMapping("/add/{no}")
+	public JSONResult add(@RequestBody ReplyVo vo) {
+		
+	/*	replyService.wirteReply( vo );*/
+		return JSONResult.success(vo);
+	}
+	
 }
