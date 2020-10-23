@@ -19,7 +19,7 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
-	
+	/*
 	@ResponseBody
 	@RequestMapping("/list")
 	public JSONResult list( 
@@ -30,6 +30,6 @@ public class BoardController {
 			List<BoardVo> list = boardService.getReplyList(startNo, groupNo);
 			return JSONResult.success(list);
 	}
-		
+	*/	
 
 }
