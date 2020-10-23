@@ -112,29 +112,6 @@
 			 where a.no = #{no} and a.user_no = b.no
 		]]>
 	</select>
-	<select id="getReplyList" resultType="boardvo" parameterType="map">
-		<![CDATA[
-			select a.no,
-				   a.content,
-				   a.group_no as groupNo,
-				   a.order_no as orderNo,
-				   a.depth,
-				   a.user_no as userNo,
-				   b.name as userName
-				  from board a, user b
-				   where a.group_no=#{groupNo} and a.depth>0 and a.user_no=b.no
-		]]>
-		<if test="${map.startNo}>0">
-			<![CDATA[
-				and no < #{map.startNo} 
-			]]>		   
-		</if>
-		<![CDATA[
-			order by order_no asc
-			limit 0, 5
-		]]>
-		
-	</select>
 	<update id="updateHit" parameterType="long">
 		<![CDATA[
 			update board
