@@ -161,7 +161,7 @@
 		
 		//live event ==> deleteform open
 		$( document ).on( "click", "#list-guestbook li a", function( event){
-			event.preventDefaule();
+			event.preventDefault();
 			window.no = $(this).data("no");
 			$("#delete-no").val(no);
 			
