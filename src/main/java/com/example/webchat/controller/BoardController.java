@@ -115,4 +115,9 @@ public class BoardController {
 		return "redirect:/board?p="+page+
 				"&kwd="+WebUtil.encodeURL(keyword, "UTF-8");
 	}
+	
+	@RequestMapping("/ajax")
+	public String indexAjax() {
+		return "/WEB-INF/views/board/index-ajax.jsp";
+	}
 }
