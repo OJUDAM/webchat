@@ -109,6 +109,8 @@
 			}
 		});
 	}
+	
+	fetchlist();
 </script>
 </head>
 <body>
