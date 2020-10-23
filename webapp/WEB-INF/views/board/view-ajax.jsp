@@ -46,12 +46,12 @@
 					<input type="text" id="input-name" placeholder="이름">
 					<input type="password" id="input-password" placeholder="비밀번호">
 					<textarea id="ta-message" placeholder="내용을 입력해주세요"></textarea>
-					<input type="submit" value="보내기">
+					<input type="submit" value="답글 달기">
 				</form>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/include/navigation.jsp">
-			<c:param name="menu" value="board/ajax"/>
+			<c:param name="menu" value="board-ajax"/>
 		</c:import>
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</div>
