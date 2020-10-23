@@ -175,14 +175,14 @@
 			var vo = {};
 			
 			//validate form data
-			vo.name=$("#imput-name").val();
+			vo.name=$("#input-name").val();
 			if( vo.name === ""){
 				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.",function(){
 					$("input-name").focus();
 				});
 				return ;
 			}
-			vo.password = $("#imput-password").val();
+			vo.password = $("#input-password").val();
 			if( vo.password === ""){
 				messageBox("방명록에 글 남기기", "비밀번호는 필수 입력 항목 입니다.",function(){
 					$("input-password").focus();
