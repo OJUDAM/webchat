@@ -47,7 +47,7 @@
 		<![CDATA[
 		delete 
 		  from guestbook 
-		where no = #{no} and password = #{password}
+		where no = #{no} and passwd = #{password}
 		]]>
 	</delete>
 </mapper>
