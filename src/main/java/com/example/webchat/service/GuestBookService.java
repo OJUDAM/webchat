@@ -29,5 +29,9 @@ public class GuestBookService {
 		
 		return guestbookRepository.getList(startNo);
 	}
+	public boolean deleteMessage(GuestBookVo vo) {
+		// TODO Auto-generated method stub
+		return guestbookRepository.delete( vo )==1;
+	}
 	
 }

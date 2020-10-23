@@ -31,4 +31,8 @@ public class GuestBookRepository {
 		return sqlSession.selectList("guestbook.getList2",startNo);
 	}
 
+	public int delete(GuestBookVo vo) {
+		return sqlSession.delete("guestbook.delete2",vo);
+	}
+
 }
