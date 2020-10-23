@@ -117,7 +117,14 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/ajax")
-	public String indexAjax() {
-		return "/WEB-INF/views/board/index-ajax.jsp";
+	public String indexAjax(
+			@RequestParam(value="p",required=true, defaultValue="1") Integer page,
+			@RequestParam(value="kwd", required=true, defaultValue="")String keyword,
+			Model model) {
+		
+		Map<String, Object> map = boardService.getMessageList(page, keyword);
+		model.addAttribute("map",map);
+		
+		return "/WEB-INF/views/board/index.jsp";
 	}
 }
