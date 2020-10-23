@@ -24,12 +24,6 @@ public class WebSocketChat {
 		System.out.println("웹소켓(서버) 객체 생성");
 	}
 	
-	@RequestMapping(value="/")
-	public String chat(){
-		return "/WEB-INF/views/chat.jsp";
-	}
-	
-	
 	@RequestMapping(value="/chat.do")
 	public ModelAndView getChatViewPage(ModelAndView mav) {
 		mav.setViewName("/WEB-INF/views/chat.jsp");
