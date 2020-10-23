@@ -62,7 +62,7 @@
 		});
 	}
 	
-	var render = function( vo, made ){
+	var render = function( vo, mode ){
 		var html=
 			"<li data-no'"+vo.no+"'>"+
 			" <strong>" + vo.name+"</strong>" +
