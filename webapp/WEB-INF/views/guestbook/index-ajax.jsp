@@ -110,7 +110,7 @@
 		});
 	}
 	
-	fetchlist();
+	fetchList();
 </script>
 </head>
 <body>
