@@ -32,7 +32,7 @@
 		<![CDATA[
 		insert 
 		 into guestbook 
-		values(null,#{name},#{passwd},#{message},now())
+		values(null,#{name},#{password},#{message},now())
 		]]>	
 	</insert>
 	
