@@ -109,7 +109,115 @@
 			}
 		});
 	}
-	
+	$(function(){
+		var dialogDelete = $("#dialog-delete-form").dialog({
+			autoOpen: false,
+			height: 180,
+			width: 300,
+			modal: true,
+			buttons: {
+				"삭제": function(){
+					var no = $("#delete-no").val();
+					var password= $("#delete-password").val();
+					
+					$.ajax({
+						url: "${pageContext.requestPath.contextPath}/guestbook/api/delete",
+						type: "post",
+						data: "no="+no + "&"+
+							  "password=" + password,
+						success: function(response){
+							if( response.result === "fail"){
+								console.error( response.message);
+								return ;
+							}
+							
+							if( response.data === -1){
+								$( "#dialog-delete-form .validateTips").hide();
+								$( "#dialog-delete-form .validateTips.error").show();
+								$( "#delete-password").val("");
+								return;
+							}
+							$("#list-guestbook li[data-no='"+response.data+"']").remove();
+							dialogDelete.dialog("close");
+						},
+						error: function(jqXHR, status, e){
+							console.error(status+ " : "+e);
+						}
+					});
+				},
+				"취소":function(){
+					dialogDelete.dialog("close");
+				}
+			},
+			close: function(){
+				$("#dialog-delete-form .validateTips").show();
+				$("#dialog-delete-form .validateTips.error").hide();
+				$("#delete-no").val("");
+				$("#delete-password").val("");
+			}
+		});
+		
+		//live event ==> deleteform open
+		$( document ).on( "click", "#list-guestbook li a", function( event){
+			event.preventDefaule();
+			window.no = $(this).data("no");
+			$("#delete-no").val(no);
+			
+			dialogDelete.dialog("open");
+		});
+		
+		$("#add-form").submit(function(event){
+			// submit event 기본 동작을 막음
+			// posting을 막음
+			event.preventDefault();
+			
+			var guestbookVo = {};
+			var vo = {};
+			
+			//validate form data
+			vo.name=$("#imput-name").val();
+			if( vo.name === ""){
+				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.",function(){
+					$("input-name").focus();
+				});
+				return ;
+			}
+			vo.password = $("#imput-password").val();
+			if( vo.password === ""){
+				messageBox("방명록에 글 남기기", "비밀번호는 필수 입력 항목 입니다.",function(){
+					$("input-password").focus();
+				});
+				return ;
+			}
+			vo.mesage = $("ta-message").val();
+			if( vo.message === ""){
+				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.",function(){
+					$("ta-message").focus();
+				});
+				return ;
+			}
+			
+			$.ajax({
+				url: "${pageContext.request.contextPath}/guestbook/api/add",
+				type: "post",
+				dataType: JSON.stringify(vo),
+				contentType: 'application/json', //JSON Type으로 데이터를 보낼 떄
+				success: function(response){
+					if( response.result === "fail"){
+						console.error( response.message);
+						return;
+					}
+					
+					reder( response.data, true);
+					
+					$("#add-form")[0].reset();
+				},
+				error: function( jqXHR, status, e){
+					console.error( status + " : "+ e);
+				}
+			});
+		});
+	})
 	fetchList();
 </script>
 </head>
