@@ -91,11 +91,6 @@ public class BoardService {
 		return boardVo;
 	}
 
-	public List<BoardVo> getReplyList(Long startNo, Integer no) {
-		
-		return boardRepository.getReplyList(startNo, no );
-	}
-
 	public BoardVo getMessage(Long no, Long userNo) {
 		BoardVo boardVo = boardRepository.get(no, userNo);
 		return boardVo;
@@ -108,5 +103,7 @@ public class BoardService {
 	public boolean deleteMessage(Long no, Long userNo) {
 		return boardRepository.delete(no, userNo) ==1;
 	}
+
+	
 	
 }
