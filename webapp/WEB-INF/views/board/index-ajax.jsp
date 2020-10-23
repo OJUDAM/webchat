@@ -14,7 +14,7 @@
 		<c:import url="/WEB-INF/views/include/header.jsp" />
 		<div id="content">
 			<div id="board">
-				<form id="search_form" action="${pageContext.request.contextPath }/board" method="get">
+				<form id="search_form" action="${pageContext.request.contextPath }/board/ajax" method="get">
 					<input type="text" id="kwd" name="kwd" value="${map.keyword }">
 					<input type="submit" value="찾기">
 				</form>
@@ -37,9 +37,7 @@
 									<td class="left">
 										<a href="${pageContext.request.contextPath }/board/view/${vo.no }?p=${map.currentPage }&kwd=${map.keyword }">${vo.title }</a>
 									</td>
-								</c:otherwise>
-							</c:choose>
-							<td>${vo.userName }</td>
+										<td>${vo.userName }</td>
 							<td>${vo.hit }</td>
 							<td>${vo.regDate }</td>
 							<td>
@@ -52,13 +50,16 @@
 									</c:otherwise>
 								</c:choose>
 							</td>
+								</c:otherwise>
+							</c:choose>
+						
 						</tr>
 					</c:forEach>
 				</table>
 				<div class="pager">
 					<ul>
 						<c:if test="${map.prevPage > 0 }" >
-							<li><a href="${pageContext.request.contextPath }/board?p=${map.prevPage }&kwd=${map.keyword }">◀</a></li>
+							<li><a href="${pageContext.request.contextPath }/board/ajax?p=${map.prevPage }&kwd=${map.keyword }">◀</a></li>
 						</c:if>
 						
 						<c:forEach begin="${map.beginPage }" end="${map.beginPage + map.listSize - 1 }" var="page">
@@ -70,13 +71,13 @@
 									<li class="selected">${page }</li>
 								</c:when>
 								<c:otherwise> 
-									<li><a href="${pageContext.request.contextPath }/board?p=${page }&kwd=${map.keyword }">${page }</a></li>
+									<li><a href="${pageContext.request.contextPath }/board/ajax?p=${page }&kwd=${map.keyword }">${page }</a></li>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						
 						<c:if test="${nextPage > 0 }" >
-							<li><a href="${pageContext.request.contextPath }/board?p=${map.nextPage }&kwd=${map.keyword }">▶</a></li>
+							<li><a href="${pageContext.request.contextPath }/board/ajax?p=${map.nextPage }&kwd=${map.keyword }">▶</a></li>
 						</c:if>	
 					</ul>
 				</div>				
