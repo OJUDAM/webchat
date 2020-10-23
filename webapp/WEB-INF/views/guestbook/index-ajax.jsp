@@ -208,7 +208,7 @@
 						return;
 					}
 					
-					reder( response.data, true);
+					render( response.data, true);
 					
 					$("#add-form")[0].reset();
 				},
