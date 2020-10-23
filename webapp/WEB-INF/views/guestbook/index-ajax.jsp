@@ -121,7 +121,7 @@
 					var password= $("#delete-password").val();
 					
 					$.ajax({
-						url: "${pageContext.requestPath.contextPath}/guestbook/api/delete",
+						url: "${pageContext.request.contextPath}/guestbook/api/delete",
 						type: "post",
 						data: "no="+no + "&"+
 							  "password=" + password,
