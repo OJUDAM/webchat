@@ -200,7 +200,8 @@
 			$.ajax({
 				url: "${pageContext.request.contextPath}/guestbook/api/add",
 				type: "post",
-				dataType: JSON.stringify(vo),
+				dataType: "json",
+				data: JSON.stringify(vo),
 				contentType: 'application/json', //JSON Type으로 데이터를 보낼 떄
 				success: function(response){
 					if( response.result === "fail"){
