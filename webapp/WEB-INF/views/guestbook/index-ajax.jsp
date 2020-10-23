@@ -242,7 +242,17 @@
 				<p></p>
 			</div>
 			<div id="dialog-delete-form" title="메세지 삭제" style="display: none">
-				<!-- 삭제 작업 -->
+				<p class="validateTips nomal">
+					작성시 입력했던 비밀번호를 입력하세요.
+				</p>
+				<p class="validateTips error" style="display:none">
+					비밀번호가 틀립니다.
+				</p>
+				<form>
+					<input type="hidden" name="no" id="delete-no" value="">
+					<input type="password" name="password" id="delete-password" value="">
+					<input type="submit" tabindex="-1" style="position:absolute; top: -1000px">
+				</form>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/include/navigation.jsp">
