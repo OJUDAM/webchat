@@ -37,4 +37,8 @@ public class GuestBookController {
 		guestbookService.deleteMessage(no);
 		return "redirect:/guestbook";
 	}
+	@RequestMapping("/ajax")
+	public String indexAjax() {
+		return "/WEB-INF/views/guestbook/index-ajax.jsp";
+	}
 }
