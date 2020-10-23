@@ -65,7 +65,7 @@
 	var render = function( vo, made ){
 		var html=
 			"<li data-no'"+vo.no+"'>"+
-			" <strong>" + vo.name+"</string>" +
+			" <strong>" + vo.name+"</strong>" +
 			" <p>" + vo.message.replace( /\n/gi, "<br>") + "</p>"+
 			" <a href='' data-no='" +vo.no+"'>삭제</a>"+
 			"</li>";
