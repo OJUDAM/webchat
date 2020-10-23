@@ -127,4 +127,10 @@ public class BoardController {
 		
 		return "/WEB-INF/views/board/index-ajax.jsp";
 	}
+	@RequestMapping("/view/ajax/{no}")
+	public String viewAjax(@PathVariable("no") Long no, Model model) {
+		BoardVo boardVo = boardService.getMessage(no);
+		model.addAttribute("boardVo",boardVo);
+		return "/WEB-INF/views/board/view-ajax.jsp";
+	}
 }

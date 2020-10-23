@@ -27,8 +27,9 @@
 						<th>작성일</th>
 						<th>&nbsp;</th>
 					</tr>
-		
+					
 					<c:forEach items="${map.list }"	var="vo" varStatus="status">			
+						
 						<tr>
 							<c:choose>
 								<c:when test="${vo.depth > 0 }">
@@ -36,7 +37,7 @@
 								<c:otherwise>
 									<td>${map.totalCount - (map.currentPage - 1)*map.listSize - status.index }</td>
 									<td class="left">
-										<a href="${pageContext.request.contextPath }/board/view/${vo.no }?p=${map.currentPage }&kwd=${map.keyword }">${vo.title }</a>
+										<a href="${pageContext.request.contextPath }/board/view/ajax/${vo.no }?p=${map.currentPage }&kwd=${map.keyword }">${vo.title }</a>
 									</td>
 										<td>${vo.userName }</td>
 							<td>${vo.hit }</td>
