@@ -125,6 +125,7 @@
 					$.ajax({
 						url: "${pageContext.request.contextPath}/guestbook/api/delete",
 						type: "post",
+						dataType: "json",
 						data: "no="+no + "&"+
 							  "password=" + password,
 						success: function(response){
