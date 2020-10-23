@@ -125,6 +125,6 @@ public class BoardController {
 		Map<String, Object> map = boardService.getMessageList(page, keyword);
 		model.addAttribute("map",map);
 		
-		return "/WEB-INF/views/board/index.jsp";
+		return "/WEB-INF/views/board/index-ajax.jsp";
 	}
 }
