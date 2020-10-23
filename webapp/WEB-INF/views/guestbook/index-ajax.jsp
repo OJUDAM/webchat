@@ -71,8 +71,10 @@
 			"</li>";
 			
 			if( mode === true){
-				$("#list-guestbook").pretend(html);
+				//앞에 추가(add)
+				$("#list-guestbook").prepend(html);
 			}else{
+				//뒤에 추가(getList)
 				$("#list-guestbook").append(html);
 			}
 	}
