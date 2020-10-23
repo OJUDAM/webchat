@@ -103,7 +103,5 @@ public class BoardService {
 	public boolean deleteMessage(Long no, Long userNo) {
 		return boardRepository.delete(no, userNo) ==1;
 	}
-
-	
 	
 }
