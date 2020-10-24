@@ -28,6 +28,7 @@ public class BoardController {
 			@RequestParam(value="sno", required=true, defaultValue="0") Long startNo,
 			@RequestParam(value="bno", required=true, defaultValue="0") Long boardNo){
 		List<BoardVo> list = replyService.getReplyList(startNo, boardNo);
+		System.out.println(startNo+" : "+boardNo);
 		return JSONResult.success(list);
 	}
 		
