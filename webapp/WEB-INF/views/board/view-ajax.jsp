@@ -41,7 +41,7 @@
 		
 		var startNo = $("#list-guestbook li").last().data( "no" ) || 0;
 		$.ajax({
-			url: "${pageContext.request.contextPath}/board/api/list?sno="+startNo+"&bno=${boardVo.no}",
+			url: "${pageContext.request.contextPath}/board/api/list?p=${param.p }&kwd=${param.kwd }&sno="+startNo+"&bno=${boardVo.no}",
 			type: "get",
 			dataType: "json",
 			data: "",
