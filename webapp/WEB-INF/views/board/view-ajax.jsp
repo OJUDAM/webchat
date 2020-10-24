@@ -108,7 +108,7 @@
 						<textarea id="ta-message" placeholder="내용을 입력해주세요"></textarea>
 						<input type="submit" value="답글 달기">
 					</form>
-					<ul id="list-guestbook"></ul>
+					<ul id="list-guestbook"><li>asdfasdfasdf</li></ul>
 					<div style="margin: 20px 0; text-align: center">
 						<button id="btn-next" style="padding: 10px 20px">다음</button>
 					</div>
