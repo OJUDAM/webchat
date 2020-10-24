@@ -26,7 +26,7 @@
 			"	<p>" + vo.message.replace(/\n/gi, "<br>")+"</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
 			"</li>";
-
+		console.log(vo.no+" : "+vo.name)
 		if (mode === true) {
 			$("#list-guestbook").prepend(html);
 		} else {
