@@ -41,7 +41,7 @@
 		
 		var startNo = $("#list-guestbook li").last().data( "no" ) || 0;
 		$.ajax({
-			url: "${pageContext.request.contextPath}/board/api/list?p=${param.p }&kwd=${param.kwd }&sno="+startNo+"&bno=${boardVo.no}",
+			url: "${pageContext.request.contextPath}/board/api/list?sno="+startNo+"&bno=${boardVo.no}",
 			type: "get",
 			dataType: "json",
 			data: "",
@@ -64,8 +64,8 @@
 				console.error( status+" : "+e);
 			}
 		});
-		fetchList();
 	}
+	fetchList();
 </script>
 </head>
 <body>
@@ -108,7 +108,7 @@
 						<textarea id="ta-message" placeholder="내용을 입력해주세요"></textarea>
 						<input type="submit" value="답글 달기">
 					</form>
-					<ul id="list-guestbook"><li>asdfasdfasdf</li></ul>
+					<ul id="list-guestbook"></ul>
 					<div style="margin: 20px 0; text-align: center">
 						<button id="btn-next" style="padding: 10px 20px">다음</button>
 					</div>
