@@ -191,7 +191,7 @@
 					
 					render(response.data, true);
 					
-					$("#reply-add-form")[0].reset();
+					$("form[name=reply-add-form]")[0].reset();
 				},
 				error: function( jqXHR, status, e){
 					console.error( status + " : "+ e);
