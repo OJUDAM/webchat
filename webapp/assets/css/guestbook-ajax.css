@@ -26,7 +26,8 @@
 	resize: none;
 }
 
-#guestbook form input[type="submit"], input[type="button"]{
+#guestbook form input[type="submit"], 
+#guestbook form input[type="button"]{
 	width:552px;
 	font-weight:bold;
 	color:#846b5c;
@@ -34,7 +35,8 @@
 	cursor: pointer;
 }
 
-#guestbook form input[type="button"],input[type="submit"]:hover {
+#guestbook form input[type="button"]:hover ,
+#guestbook form input[type="submit"]:hover {
 	background-color: #65b791;
 	color: #fff;
 }
