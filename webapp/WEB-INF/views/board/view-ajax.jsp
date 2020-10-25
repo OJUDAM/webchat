@@ -40,8 +40,8 @@
 			"	<p>" + vo.message.replace(/\n/gi, "<br>")+"</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
 			"	<button id='add-reply'data-no='"+vo.no+"'>댓글 달기</button>" +
-			"	<div id='guestbook'>" +
-			"   <form id='reply-add-form' action='' method='post' style='display: none'>" +
+			"	<div id='guestbook' style='display: none'>" +
+			"   <form id='reply-add-form' action='' method='post'>" +
 			"	<input type='text' id='reply-input-name' placeholder='이름'>" +
 			"	<input type='password' id='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea id='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
@@ -126,16 +126,17 @@
 			
 		});
 		
+		fetchList();
 		$( "#add-reply").click(function(){
 			window.no = $(this).data("no");
 			console.log("------------"+no);
-			$("#list-guestbook li[data-no='"+ no +"']").children('#add-replyform').show();
+			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
 		});
 		$( "#reply-cancle").click(function(){
 			window.no = $(this).data("no");
 			$("#list-guestbook li[data-no='"+ no +"']" .reply-add-form).hide();
 		});
-		fetchList();
+		
 	});
 	
 </script>
