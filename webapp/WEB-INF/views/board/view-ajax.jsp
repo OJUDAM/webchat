@@ -152,17 +152,18 @@
 			replyVo.groupNo = $("input[name=groupNo]").val();
 			replyVo.depth = $("input[name=depth]").val();
 			replyVo.orderNo = $("input[name=orderNo]").val();
+			
 			replyVo.name = $("input[name=reply-input-name]").val();
 			if( replyVo.name === ""){
 				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
-					$("#reply-input-name").focus();
+					$("input[name=reply-input-name]").focus();
 				});
 				return;
 			}
 			replyVo.password = $("input[name=reply-input-password]").val();
 			if(replyVo.password === ""){
 				messageBox("방명록에 글 남기기","비밀번호는 필수 입력 항목 입니다.", function(){
-					$("#reply-input-password").focus();
+					$("input[name=reply-input-password]").focus();
 				});
 				return;
 			}
@@ -170,7 +171,7 @@
 			replyVo.message = $("input[name=reply-ta-message]").val();
 			if( replyVo.message === ""){
 				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
-					$( "#reply-ta-message").focus();
+					$( "input[name=reply-ta-message]").focus();
 				});
 				return;
 			}
