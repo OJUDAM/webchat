@@ -146,7 +146,7 @@
 		});
 		console.log(jQuery.type($("form[name=reply-add-form]")));
 		//reply-ajax
-		$( "form[name='reply-add-form']").submit(function(event){
+$(document).on("click", "input[type=submit]", function(event){
 			event.preventDefault();
 			console.log("reply-ajax come in...");
 			var replyVo = {};
