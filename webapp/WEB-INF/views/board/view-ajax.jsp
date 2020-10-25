@@ -46,8 +46,8 @@
 			"	<input type='password' id='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea id='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
 			"	<input type='submit' value='답글 달기'>" +	
+			"   <input type='button' id='reply-cancle' data-no='"+ vo.no+"'>취소</button>"+
 			"	</form>" +
-			"	<button id='reply-cancle' data-no='"+ vo.no+ "'>취소</button>" +
 			"</li>";
 		
 		if (mode === true) {
