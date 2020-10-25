@@ -39,6 +39,7 @@
 			"	<strong>" + vo.name+ "</strong>" + 
 			"	<p>" + vo.message.replace(/\n/gi, "<br>")+"</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
+			"	<button id='add-reply' style='adding: 10px 20px'>댓글 달기</button>" +
 			"</li>";
 		console.log(vo.no+" : "+vo.name)
 		if (mode === true) {
