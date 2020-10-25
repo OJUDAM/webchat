@@ -42,9 +42,9 @@
 			"	<button id='add-reply'data-no='"+vo.no+"'>댓글 달기</button>" +
 			"	<div id='guestbook' style='display: none'>" +
 			"   <form id='reply-add-form' action='' method='post'>" +
-			"	<input type='hidden' name='groupNo' value='"+vo.groupNo+"'>" +
-			"	<input type='hidden' name='orderNo' value='"+vo.orderNo+"'>" +
-			"	<input type='hidden' name='depth' value='"+vo.depth+"'>" +
+			"	<input type='hidden' id='groupNo' value='"+vo.groupNo+"'>" +
+			"	<input type='hidden' id='orderNo' value='"+vo.orderNo+"'>" +
+			"	<input type='hidden' id='depth' value='"+vo.depth+"'>" +
 			"	<input type='text' id='reply-input-name' placeholder='이름'>" +
 			"	<input type='password' id='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea id='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
@@ -143,6 +143,58 @@
 			});
 			
 			
+		});
+		
+		//reply-ajax
+		$( "#reply-add-form").submit(function(event){
+			event.preventDefault();
+			var replyVo = {};
+			replyVo.groupNo = $("#groupNo").val();
+			replyVo.depth = $("#depth").val();
+			replyVo.orderNo = $("#orderNo").val();
+			replyVo.name = $("#reply-input-name").val();
+			if( replyVo.name === ""){
+				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
+					$("#reply-input-name").focus();
+				});
+				return;
+			}
+			replyVo.password = $("#reply-input-password").val();
+			if(replyVo.password === ""){
+				messageBox("방명록에 글 남기기","비밀번호는 필수 입력 항목 입니다.", function(){
+					$("#reply-input-password").focus();
+				});
+				return;
+			}
+			
+			replyVo.message = $("#reply-ta-message").val();
+			if( replyVo.message === ""){
+				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
+					$( "#reply-ta-message").focus();
+				});
+				return;
+			}
+			replyVo.boardNo = ${boardVo.no};
+			$.ajax({
+				url: "${pageContext.request.contextPath}/board/api/add",
+				type: "post",
+				dataType: "json",
+				data: JSON.stringify(replyVo),
+				contentType: 'application/json',
+				success: function( response ){
+					if( response.result === "fail"){
+						console.error( response.message);
+						return ;
+					}
+					
+					render(response.data, true);
+					
+					$("#reply-add-form")[0].reset();
+				},
+				error: function( jqXHR, status, e){
+					console.error( status + " : "+ e);
+				}
+			});
 		});
 		
 		$(document).on("click", "#add-reply", function(event){
