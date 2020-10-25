@@ -117,11 +117,25 @@
 				});
 				return;
 			}
-			/* $.ajax({
+			$.ajax({
 				url: "${pageContext.request.contextPath}/board/api/add",
 				type: "post",
-			
-			}) */
+				dataType: "json",
+				data: JSON.stringify(vo),
+				success: function( response ){
+					if( response.result === "fail"){
+						console.error( response.message);
+						return ;
+					}
+					
+					render(response.data, true);
+					
+					$("#add-form")[0].reset();
+				},
+				error: function( jqXHR, status, e){
+					console.error( status + " : "+ e);
+				}
+			});
 			
 			
 		});
