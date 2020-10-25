@@ -123,6 +123,7 @@
 				type: "post",
 				dataType: "json",
 				data: JSON.stringify(replyVo),
+				contentType: 'application/json',
 				success: function( response ){
 					if( response.result === "fail"){
 						console.error( response.message);
