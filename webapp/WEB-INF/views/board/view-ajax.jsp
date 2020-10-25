@@ -108,9 +108,11 @@
 				});
 				return;
 			}
-			$.ajas({
+			/* $.ajax({
 				url: "${pageContext.request.contextPath}/board/api/add",
-			})	type: "post",
+				type: "post",
+			
+			}) */
 		});
 		fetchList();
 	});
