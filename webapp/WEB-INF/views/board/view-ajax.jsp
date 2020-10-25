@@ -129,7 +129,7 @@
 		$( "#add-reply").click(function(){
 			window.no = $(this).data("no");
 			console.log("------------"+no);
-			$("#list-guestbook li[data-no='"+ no +"']" .reply-add-form).show();
+			$("#list-guestbook li[data-no='"+ no +"']" "#reply-add-form").show();
 		});
 		$( "#reply-cancle").click(function(){
 			window.no = $(this).data("no");
