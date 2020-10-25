@@ -126,17 +126,24 @@
 			
 		});
 		
-		fetchList();
-		$( "#add-reply").click(function(){
+		$(document).on("click", "#add-reply", function(evnet{
+			event.preventDefault();
 			window.no = $(this).data("no");
 			console.log("------------"+no);
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
 		});
+		/* 
+		$( "#add-reply").click(function(){
+			window.no = $(this).data("no");
+			console.log("------------"+no);
+			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
+		}); */
+		
 		$( "#reply-cancle").click(function(){
 			window.no = $(this).data("no");
 			$("#list-guestbook li[data-no='"+ no +"']" .reply-add-form).hide();
 		});
-		
+		fetchList();
 	});
 	
 </script>
