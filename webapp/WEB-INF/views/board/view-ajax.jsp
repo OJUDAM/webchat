@@ -39,15 +39,15 @@
 			"	<strong>" + vo.name+ "</strong>" + 
 			"	<p>" + vo.message.replace(/\n/gi, "<br>")+"</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
-			"	<button id='add-reply'data-no='"+vo.no+"' style='padding: 10px 20px'>댓글 달기</button>" +
+			"	<button id='add-reply'data-no='"+vo.no+"'>댓글 달기</button>" +
 			"	<div id='guestbook'>" +
 			"   <form id='reply-add-form' action='' method='post' style='display: none'>" +
 			"	<input type='text' id='reply-input-name' placeholder='이름'>" +
 			"	<input type='password' id='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea id='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
-			"	<input type='submit' value='답글 달기'>" +
-			"	<button id='reply-cancle' data-no='"+vo.no+ "'style='padding: 10px 20px'>취소</button>" +
+			"	<input type='submit' value='답글 달기'>" +	
 			"	</form>" +
+			"	<button id='reply-cancle' data-no='"+ vo.no+ "'>취소</button>" +
 			"</li>";
 		
 		if (mode === true) {
@@ -128,11 +128,11 @@
 		
 		$( "#add-reply").click(function(){
 			window.no = $(this).data("no");
-			$("#list-guestbook li form").show();
+			$("#list-guestbook li div form").show();
 		});
 		$( "#reply-cancle").click(function(){
 			window.no = $(this).data("no");
-			$("#list-guestbook li form").hide();
+			$("#list-guestbook li div form").hide();
 		});
 		fetchList();
 	});
