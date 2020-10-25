@@ -8,6 +8,7 @@
 		       name,
 		       message,
 		       date_format(reg_date, '%Y-%m-%d') as regDate,
+		       group_no as groupNo,
 		       order_no as orderNo,
 		       depth
 		   from reply 
@@ -19,7 +20,7 @@
 		]]>
 	</if>
 	<![CDATA[
-		order by order_no asc
+		order by group_no desc, order_no asc
 		 limit 0, 5
 	]]>
 </select>

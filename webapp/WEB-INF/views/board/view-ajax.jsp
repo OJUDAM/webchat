@@ -18,7 +18,21 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 	var isEnd = false;
-
+	
+	var mesasgeBox = function(title, message, callback){
+		$( "#dialog-message").attr("title",title);
+		$("#dialog-message p").text(message);
+		$("#dialog-message").dialog({
+			modal: true,
+			buttons: {
+				"확인": function(){
+					$( this ).dialog("close");
+				}
+			},
+			close: callback || function(){}
+		});
+	}
+	
 	var render = function(vo, mode) {
 		var html = 
 			"<li data-no='" + vo.no + "'>" +
@@ -65,7 +79,42 @@
 			}
 		});
 	}
-	fetchList();
+	
+	$(function(){
+		$( "#add-form").submit(function(event){
+			event.preventDefault();
+			
+			var replyVo = {};
+			
+			replyVo.name = $("#input-name").val();
+			if( replyVo.name === ""){
+				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
+					$("#input-name").focus();
+				});
+				return;
+			}
+			replyVo.password = $("#input-password").val();
+			if(replyVo.password === ""){
+				messageBox("방명록에 글 남기기","비밀번호는 필수 입력 항목 입니다.", function(){
+					$("#input-password").focus();
+				});
+				return;
+			}
+			
+			replyVo.message = $("#ta-message").val();
+			if( vo.message === ""){
+				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
+					$( "#ta-message").focus();
+				});
+				return;
+			}
+			$.ajas({
+				url: "${pageContext.request.contextPath}/board/api/add",
+			})	type: "post",
+		});
+		fetchList();
+	});
+	
 </script>
 </head>
 <body>
