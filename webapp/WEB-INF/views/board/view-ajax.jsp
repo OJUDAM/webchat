@@ -49,7 +49,7 @@
 			"	<input type='password' name='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea name='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
 			"	<input type='submit' value='답글 달기'>" +	
-			"   <input type='button' id='reply-cancle' data-no='"+ vo.no+"' value='취소'>"+
+			"   <input type='button' name='reply-cancle' data-no='"+ vo.no+"' value='취소'>"+
 			"	</form>" +
 			"</li>";
 		
