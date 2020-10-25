@@ -6,6 +6,7 @@ public class ReplyVo {
 	private String password;
 	private String message;
 	private String regDate;
+	private String groupNo;
 	private Integer orderNo;
 	private Integer depth;
 	private Long boardNo;
@@ -39,6 +40,12 @@ public class ReplyVo {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+	public String getGroupNo() {
+		return groupNo;
+	}
+	public void setGroupNo(String groupNo) {
+		this.groupNo = groupNo;
+	}
 	public Integer getOrderNo() {
 		return orderNo;
 	}
@@ -57,10 +64,12 @@ public class ReplyVo {
 	public void setBoardNo(Long boardNo) {
 		this.boardNo = boardNo;
 	}
-	
 	@Override
 	public String toString() {
 		return "ReplyVo [no=" + no + ", name=" + name + ", password=" + password + ", message=" + message + ", regDate="
-				+ regDate + ", orderNo=" + orderNo + ", depth=" + depth + ", boardNo=" + boardNo + "]";
+				+ regDate + ", groupNo=" + groupNo + ", orderNo=" + orderNo + ", depth=" + depth + ", boardNo="
+				+ boardNo + "]";
 	}
+	
+	
 }
