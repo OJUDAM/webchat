@@ -111,7 +111,7 @@
 			}
 			
 			replyVo.message = $("#ta-message").val();
-			if( vo.message === ""){
+			if( replyVo.message === ""){
 				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
 					$( "#ta-message").focus();
 				});
