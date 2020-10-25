@@ -48,7 +48,7 @@
 			"	<input type='text' name='reply-input-name' placeholder='이름'>" +
 			"	<input type='password' name='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea name='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
-			"	<input type='submit' value='답글 달기'>" +	
+			"	<input type='submit' name='addReply' value='답글 달기'>" +	
 			"   <input type='button' name='reply-cancle' data-no='"+ vo.no+"' value='취소'>"+
 			"	</form>" +
 			"</li>";
@@ -146,7 +146,7 @@
 		});
 		console.log(jQuery.type($("form[name=reply-add-form]")));
 		//reply-ajax
-$(document).on("click", "input[type=submit]", function(event){
+$(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
 			console.log("reply-ajax come in...");
 			var replyVo = {};
