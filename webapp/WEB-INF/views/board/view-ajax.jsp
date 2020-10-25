@@ -128,11 +128,11 @@
 		
 		$( "#add-reply").click(function(){
 			window.no = $(this).data("no");
-			$("#list-guestbook li div form").show();
+			$("#list-guestbook li[data-no='"+ no +"']" .reply-add-form).show();
 		});
 		$( "#reply-cancle").click(function(){
 			window.no = $(this).data("no");
-			$("#list-guestbook li div form").hide();
+			$("#list-guestbook li[data-no='"+ no +"']" .reply-add-form).hide();
 		});
 		fetchList();
 	});
