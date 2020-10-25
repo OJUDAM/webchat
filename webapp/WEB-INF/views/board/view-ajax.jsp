@@ -117,7 +117,7 @@
 				});
 				return;
 			}
-			replyVo.boradNo = ${boardVo.no};
+			replyVo.boardNo = ${boardVo.no};
 			$.ajax({
 				url: "${pageContext.request.contextPath}/board/api/add",
 				type: "post",
