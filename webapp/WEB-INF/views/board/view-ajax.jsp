@@ -146,7 +146,7 @@
 		});
 		
 		//reply-ajax
-		$( "#reply-add-form").submit(function(event){
+		$( "input[name=reply-add-form]").submit(function(event){
 			event.preventDefault();
 			var replyVo = {};
 			replyVo.groupNo = $("input[name=groupNo]").val();
