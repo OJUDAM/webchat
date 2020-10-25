@@ -46,7 +46,7 @@
 			"	<input type='password' id='reply-input-password' placeholder='비밀번호'>" +
 			"	<textarea id='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
 			"	<input type='submit' value='답글 달기'>" +	
-			"   <input type='button' id='reply-cancle' data-no='"+ vo.no+"'>취소</button>"+
+			"   <input type='button' id='reply-cancle' data-no='"+ vo.no+"' value='취소'>"+
 			"	</form>" +
 			"</li>";
 		
@@ -129,19 +129,12 @@
 		$(document).on("click", "#add-reply", function(event){
 			event.preventDefault();
 			window.no = $(this).data("no");
-			console.log("------------"+no);
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
 		});
-		/* 
-		$( "#add-reply").click(function(){
+		$(document).on("click", "#reply-cancle", function(event){
+			event.preventDefault();
 			window.no = $(this).data("no");
-			console.log("------------"+no);
-			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
-		}); */
-		
-		$( "#reply-cancle").click(function(){
-			window.no = $(this).data("no");
-			$("#list-guestbook li[data-no='"+ no +"']" .reply-add-form).hide();
+			$("#list-guestbook li[data-no='"+ no +"']").children('div').hide();
 		});
 		fetchList();
 	});
