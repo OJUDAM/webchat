@@ -144,7 +144,7 @@
 			
 			
 		});
-		console.log(JQuery.type("form[name=reply-add-form]"));
+		console.log(jQuery.type("form[name=reply-add-form]"));
 		//reply-ajax
 		$( "form[name=reply-add-form]").submit(function(event){
 			event.preventDefault();
