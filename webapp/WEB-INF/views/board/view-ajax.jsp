@@ -126,7 +126,7 @@
 			
 		});
 		
-		$(document).on("click", "#add-reply", function(evnet{
+		$(document).on("click", "#add-reply", function(event{
 			event.preventDefault();
 			window.no = $(this).data("no");
 			console.log("------------"+no);
