@@ -41,13 +41,13 @@
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
 			"	<button id='add-reply'data-no='"+vo.no+"'>댓글 달기</button>" +
 			"	<div id='guestbook' style='display: none'>" +
-			"   <form id='reply-add-form' action='' method='post'>" +
-			"	<input type='hidden' id='groupNo' value='"+vo.groupNo+"'>" +
-			"	<input type='hidden' id='orderNo' value='"+vo.orderNo+"'>" +
-			"	<input type='hidden' id='depth' value='"+vo.depth+"'>" +
-			"	<input type='text' id='reply-input-name' placeholder='이름'>" +
-			"	<input type='password' id='reply-input-password' placeholder='비밀번호'>" +
-			"	<textarea id='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
+			"   <form name='reply-add-form' action='' method='post'>" +
+			"	<input type='hidden' name='groupNo' value='"+vo.groupNo+"'>" +
+			"	<input type='hidden' name='orderNo' value='"+vo.orderNo+"'>" +
+			"	<input type='hidden' name='depth' value='"+vo.depth+"'>" +
+			"	<input type='text' name='reply-input-name' placeholder='이름'>" +
+			"	<input type='password' name='reply-input-password' placeholder='비밀번호'>" +
+			"	<textarea name='reply-ta-message' placeholder='내용을 입력해주세요'></textarea>" +
 			"	<input type='submit' value='답글 달기'>" +	
 			"   <input type='button' id='reply-cancle' data-no='"+ vo.no+"' value='취소'>"+
 			"	</form>" +
