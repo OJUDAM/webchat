@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.webchat.dto.JSONResult;
 import com.example.webchat.service.ReplyService;
 import com.example.webchat.vo.BoardVo;
-import com.example.webchat.vo.ReplyVo;
 
 @Controller("BoardControllerApi")
 @RequestMapping("/board/api")
@@ -34,7 +33,7 @@ public class BoardController {
 		
 	@ResponseBody
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public JSONResult add(@RequestBody ReplyVo vo) {
+	public JSONResult add(@RequestBody BoardVo vo) {
 		System.out.println(vo.toString());
 		/*replyService.wirteReply( vo );*/
 		return JSONResult.success(vo);
