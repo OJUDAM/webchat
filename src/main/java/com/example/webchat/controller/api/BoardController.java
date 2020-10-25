@@ -36,12 +36,13 @@ public class BoardController {
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public JSONResult add(@RequestBody ReplyVo vo) {
 		System.out.println(vo.toString());
-		/*
+		
 		if(vo.getGroupNo() != null) {
 			replyService.increaseGroupOrderNo( vo);
 		}
+		
 		replyService.addReply( vo );
-		*/
+		
 		return JSONResult.success(vo);
 	}
 	

@@ -6,7 +6,7 @@ public class ReplyVo {
 	private String password;
 	private String message;
 	private String regDate;
-	private String groupNo;
+	private Integer groupNo;
 	private Integer orderNo;
 	private Integer depth;
 	private Long boardNo;
@@ -40,10 +40,10 @@ public class ReplyVo {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-	public String getGroupNo() {
+	public Integer getGroupNo() {
 		return groupNo;
 	}
-	public void setGroupNo(String groupNo) {
+	public void setGroupNo(Integer groupNo) {
 		this.groupNo = groupNo;
 	}
 	public Integer getOrderNo() {

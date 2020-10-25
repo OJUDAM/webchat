@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reply">
-
+<insert id="insert" parameterType="replyvo">
+	<choose>
+		<when test="groupNo == null">
+			<![CDATA[
+				insert
+				 into reply
+				values( null,
+						#{name},
+						#{password},
+						#{message},
+						now(),
+						( select ifnull( max(group_no), 0) +1
+							from reply a),
+						1,
+						0,
+						#{boardNo})
+			]]>
+		</when>
+		<otherwise>
+			<![CDATA[
+				insert
+				 into reply
+				values( null,
+						#{name},
+						#{password},
+						#{message},
+						now(),
+						#{groupNo},
+						#{orderNo},
+						#{depth},
+						#{boardNo})
+			]]>
+		</otherwise>
+	</choose>
+</insert>
 <select id="getList" resultType="replyvo" parameterType="map">
 	<![CDATA[
 		select no,
@@ -24,4 +58,12 @@
 		 limit 0, 5
 	]]>
 </select>
+<update id="updateOrderNo" parameterType="map">
+	<![CDATA[
+		update reply
+		 set order_no = order_no +1
+		where group_no = #{groupNo}
+		 and order_no>= #{orderNo}
+	]]>
+</update>
 </mapper>
