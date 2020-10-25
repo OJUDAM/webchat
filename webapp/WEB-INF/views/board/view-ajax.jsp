@@ -117,11 +117,12 @@
 				});
 				return;
 			}
+			replyVo.boradNo = ${boardVo.no};
 			$.ajax({
 				url: "${pageContext.request.contextPath}/board/api/add",
 				type: "post",
 				dataType: "json",
-				data: JSON.stringify(vo),
+				data: JSON.stringify(replyVo),
 				success: function( response ){
 					if( response.result === "fail"){
 						console.error( response.message);
