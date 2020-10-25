@@ -148,6 +148,7 @@
 		//reply-ajax
 		$( "form[name=reply-add-form]").submit(function(event){
 			event.preventDefault();
+			console.log("reply-ajax come in...")
 			var replyVo = {};
 			replyVo.groupNo = $("input[name=groupNo]").val();
 			replyVo.depth = $("input[name=depth]").val();
