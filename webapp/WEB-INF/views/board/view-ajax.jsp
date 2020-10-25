@@ -202,7 +202,7 @@
 			window.no = $(this).data("no");
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
 		});
-		$(document).on("click", "#reply-cancle", function(event){
+		$(document).on("click", "input[name=reply-cancle]", function(event){
 			event.preventDefault();
 			window.no = $(this).data("no");
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').hide();
