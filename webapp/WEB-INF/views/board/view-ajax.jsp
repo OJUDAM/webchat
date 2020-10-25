@@ -144,9 +144,9 @@
 			
 			
 		});
-		
+		window.no = $(this).data("no");
 		//reply-ajax
-		$( "form[name=reply-add-form]").submit(function(event){
+		$("#list-guestbook li[data-no='"+ no +"']").children('form').submit(function(event){
 			event.preventDefault();
 			console.log("reply-ajax come in...")
 			var replyVo = {};
