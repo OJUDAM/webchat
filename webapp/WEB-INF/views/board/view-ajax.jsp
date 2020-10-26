@@ -148,33 +148,31 @@
 		//reply-ajax
 $(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
-			console.log("reply-ajax come in...");
 			var replyVo = {};
 			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"'] form");
-			replyVo.groupNo = $("#list-guestbook li[data-no='"+ $(this).data("no") +"']").children('input[name=groupNo]').val();
+			replyVo.groupNo = selectedLi.children('input[name=groupNo]').val();
 			replyVo.depth = selectedLi.children('input[name=depth]').val();
 			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
-			console.log($(this).data("no"));
 			console.log(replyVo);
-			replyVo.name = $("input[name=reply-input-name]").val();
+			replyVo.name = selectedLi.children('input[name=reply-input-name]').val();
 			if( replyVo.name === ""){
 				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
-					$("input[name=reply-input-name]").focus();
+					selectedLi.children('input[name=reply-input-name]').focus();
 				});
 				return;
 			}
-			replyVo.password = $("input[name=reply-input-password]").val();
+			replyVo.password = selectedLi.children('input[name=reply-input-password]').val();
 			if(replyVo.password === ""){
 				messageBox("방명록에 글 남기기","비밀번호는 필수 입력 항목 입니다.", function(){
-					$("input[name=reply-input-password]").focus();
+					selectedLi.children('input[name=reply-input-password]').focus();
 				});
 				return;
 			}
 			
-			replyVo.message = $("input[name=reply-ta-message]").val();
+			replyVo.message = selectedLi.children('input[name=reply-ta-message]').val();
 			if( replyVo.message === ""){
 				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
-					$( "input[name=reply-ta-message]").focus();
+					selectedLi.children('input[name=reply-ta-message]').focus();
 				});
 				return;
 			}
