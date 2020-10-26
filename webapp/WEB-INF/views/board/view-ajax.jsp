@@ -99,6 +99,53 @@
 	}
 	
 	$(function(){
+		var dialogDelete = $("#dialog-delete-form").dialog({
+			autoOpen: false,
+			height: 180,
+			width: 300,
+			modal: true,
+			buttons: {
+				"삭제":funtion(){
+					var no = $("#delete-no").val();
+					var password = $("#delete-password").val();
+					
+					$.ajax({
+						url: "${pageContext.request.contextPath}/board/api/delete",
+						type: "post",
+						dataType: "json",
+						data: "no="+no+"&"+
+							  "password="+password,
+						success: function(response){
+							if( response.reulst === "fail"){
+								console.error( response.message);
+								return ;
+							}
+							
+							if(reponse.data === -1){
+								$("#dialog-delete-form .validateTpis").hide();
+								$("#dialog-delete-form .validateTips.error").show();
+								$("#delete-password").val("");
+								return ;
+							}
+							$("#list-guestbook li[data-no='"+response.data+"']").remove();
+							dialogDelete.dialog("close");
+						},
+						error: function( jqXHR, status, e){
+							console.error(status+ " : "+ jqXHR.responseText);
+						}
+					});
+				},
+				"취소" : function(){
+					dialogDelete.dialog("close");
+				}
+			},
+			close: function(){
+				$("#dialog-delete-form .validateTips").show();
+				$("#dialog-delete-form .validateTips.error").hide();
+				$("#delete-no").val("");
+				$("#delete-password").val("");
+			}
+		});
 		$( "#add-form").submit(function(event){
 			event.preventDefault();
 			
@@ -205,6 +252,13 @@ $(document).on("click", "input[name=addReply]", function(event){
 				}
 			});
 		});
+		$(document).on("click", "#list-guestbook li a", function(event){
+			event.preventDefault();
+			
+			window.no = $(this).data("no");
+			$("#delete-no").val(no);
+			dialogDelete.dialog("open");
+		});
 		
 		$(document).on("click", "#add-reply", function(event){
 			event.preventDefault();
@@ -220,6 +274,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 		$("#btn-next").click(function(){
 			fetchList();
 		});
+		
 		fetchList();
 	});
 	
@@ -269,6 +324,24 @@ $(document).on("click", "input[name=addReply]", function(event){
 					<div style="margin: 20px 0; text-align: center">
 						<button id="btn-next" style="padding: 10px 20px">다음</button>
 					</div>
+				</div>
+				<div id="dialog-message" title="" style="display:none">
+					<p></p>
+				</div>
+				
+				<div id="dialog-delete-form" title="댓글 삭제" style="display:none">
+					<p class="validateTips normal">
+						작성시 입력했던 비밀번호를 입력하세요.
+					</p>
+					<p class="vaildateTips error" style="display:none">
+						비밀번호가 틀립니다.
+					</p>
+					
+					<form>
+						<input type="hidden" name="no" id="delete-no" value="">
+						<input type="password" name="password" id="delete-password" value="" class="text ui-widget-content ui-corner-all">
+						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+					</form>
 				</div>
 			</div>
 		</div>
