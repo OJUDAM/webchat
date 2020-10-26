@@ -191,7 +191,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 					
 					render(response.data, true);
 					
-					$("form[name=reply-add-form]")[0].reset();
+					selectedLi[0].reset();
 				},
 				error: function( jqXHR, status, e){
 					console.error( status + " : "+ e);
