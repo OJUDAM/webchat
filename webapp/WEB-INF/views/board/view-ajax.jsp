@@ -194,7 +194,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 					selectedLi[0].reset();
 				},
 				error: function( jqXHR, status, e){
-					console.error( status + " : "+ e);
+					console.error( status + " : "+ jqHXR.responseText);
 				}
 			});
 		});
