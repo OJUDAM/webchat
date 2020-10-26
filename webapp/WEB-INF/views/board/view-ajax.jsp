@@ -35,7 +35,7 @@
 	
 	var render = function(vo, mode) {
 		
-		var rreply ="	<h4>-->"+vo.userName+"</h3>" 
+		var rreply ="	<h4>-->"+vo.userName+"</h4>" 
 		if(vo.replyNo ==null){
 			rreply = "";
 		}
