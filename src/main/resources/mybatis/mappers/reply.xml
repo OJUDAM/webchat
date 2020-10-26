@@ -76,7 +76,7 @@
 		 and order_no>= #{orderNo}
 	]]>
 </update>
-<select id="getGroupNo" parameterType="long">
+<select id="getGroupNo" parameterType="long" resultType="integer">
 	<![CDATA[
 		select group_no
 		 from reply
