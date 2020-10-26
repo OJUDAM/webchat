@@ -31,5 +31,8 @@ public class ReplyRepository {
 	public int addReply(ReplyVo vo) {
 		return sqlSession.insert("reply.insert",vo);
 	}
+	public String getName(Long replyNo) {
+		return sqlSession.selectOne("reply.getName", replyNo);
+	}
 
 }

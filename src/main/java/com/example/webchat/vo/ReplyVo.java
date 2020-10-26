@@ -10,6 +10,9 @@ public class ReplyVo {
 	private Integer orderNo;
 	private Integer depth;
 	private Long boardNo;
+	private Long replyNo;
+	private String userName;
+	
 	public Long getNo() {
 		return no;
 	}
@@ -64,12 +67,27 @@ public class ReplyVo {
 	public void setBoardNo(Long boardNo) {
 		this.boardNo = boardNo;
 	}
+	
+	public Long getReplyNo() {
+		return replyNo;
+	}
+	public void setReplyNo(Long replyNo) {
+		this.replyNo = replyNo;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	@Override
 	public String toString() {
 		return "ReplyVo [no=" + no + ", name=" + name + ", password=" + password + ", message=" + message + ", regDate="
 				+ regDate + ", groupNo=" + groupNo + ", orderNo=" + orderNo + ", depth=" + depth + ", boardNo="
-				+ boardNo + "]";
+				+ boardNo + ", replyNo=" + replyNo + ", userName=" + userName + "]";
 	}
+	
 	
 	
 }

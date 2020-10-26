@@ -28,4 +28,8 @@ public class ReplyService {
 		return replyRepository.addReply(vo) == 1;	
 	}
 
+	public String getName(Long replyNo) {
+		return replyRepository.getName(replyNo);
+	}
+
 }

@@ -37,7 +37,7 @@
 		var html = 
 			"<li data-no='" + vo.no + "'>" +
 			"	<strong>" + vo.name+ "</strong>" + 
-			"	<p>" + vo.message.replace(/\n/gi, "<br>")+"</P>" + 
+			"	<p><h3>"+vo.userName+"</h3>" +vo.message.replace(/\n/gi, "<br>")+"</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
 			"	<button id='add-reply' data-no='"+vo.no+"'>댓글 달기</button>" +
 			"	<div id='guestbook' style='display: none'>" +
@@ -151,9 +151,9 @@ $(document).on("click", "input[name=addReply]", function(event){
 			var replyVo = {};
 			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"'] form");
 			replyVo.groupNo = selectedLi.children('input[name=groupNo]').val();
-			replyVo.depth = selectedLi.children('input[name=depth]').val();
+			replyVo.depth = selectedLi.children('input[name=depth]').val() +1;
 			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
-			
+			replyVo.replyNo = $(this).data("no");
 			replyVo.name = selectedLi.children('input[name=reply-input-name]').val();
 			if( replyVo.name === ""){
 				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
@@ -190,7 +190,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 						return ;
 					}
 					
-					render(response.data, true);
+					render(response.data, false);
 					
 					selectedLi[0].reset();
 				},
