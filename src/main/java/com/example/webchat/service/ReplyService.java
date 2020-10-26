@@ -16,8 +16,13 @@ public class ReplyService {
 	private ReplyRepository replyRepository;
 	
 	public List<ReplyVo> getReplyList(Long startNo, Long boardNo) {
-		
-		return replyRepository.getList(startNo, boardNo);
+		List<ReplyVo> list = replyRepository.getList(startNo, boardNo); 
+		for( ReplyVo vo: list) {
+			if(vo.getReplyNo() != null) {
+				vo.setUserName(replyRepository.getName(vo.getReplyNo()));
+			}
+		}
+		return list;
 	}
 
 	public boolean increaseGroupOrderNo(ReplyVo vo) {
