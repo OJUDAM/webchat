@@ -197,7 +197,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 					console.log(response.data);
 					
 					//render(response.data, false);
-					fatchList();
+					fetchList();
 					selectedLi[0].reset();
 					selectedLi.children('div').hide();
 				},
