@@ -24,8 +24,8 @@ public class ReplyService {
 		return replyRepository.updateOrderNo( vo.getGroupNo(), vo.getOrderNo()) == 1;
 	}
 
-	public boolean addReply(ReplyVo vo) {
-		return replyRepository.addReply(vo) == 1;	
+	public Long addReply(ReplyVo vo) {
+		return replyRepository.addReply(vo);	
 	}
 
 	public String getName(Long replyNo) {

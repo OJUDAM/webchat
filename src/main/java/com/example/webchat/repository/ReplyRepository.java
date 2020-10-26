@@ -27,8 +27,8 @@ public class ReplyRepository {
 		map.put("orderNo", orderNo);
 		return sqlSession.update("reply.updateOrderNo", map);
 	}
-	public int addReply(ReplyVo vo) {
-		return sqlSession.insert("reply.insert",vo);
+	public Long addReply(ReplyVo vo) {
+		return (long) sqlSession.insert("reply.insert",vo);
 	}
 	public String getName(Long replyNo) {
 		return sqlSession.selectOne("reply.getName", replyNo);

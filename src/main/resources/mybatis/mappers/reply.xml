@@ -8,7 +8,7 @@
 		where no=#{replyNo}; 
 	]]>
 </select>
-<insert id="insert" parameterType="replyvo">
+<insert id="insert" parameterType="replyvo" useGeneratedKeys="true" keyProperty="no">
 	<choose>
 		<when test="groupNo == null">
 			<![CDATA[
