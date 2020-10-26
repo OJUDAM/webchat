@@ -23,6 +23,7 @@
 							from reply a),
 						1,
 						0,
+						#{replyNo},
 						#{boardNo})
 			]]>
 		</when>
@@ -38,6 +39,7 @@
 						#{groupNo},
 						#{orderNo},
 						#{depth},
+						#{replyNo},
 						#{boardNo})
 			]]>
 		</otherwise>
