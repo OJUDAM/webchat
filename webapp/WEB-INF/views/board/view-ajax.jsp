@@ -36,7 +36,7 @@
 	var render = function(vo, mode) {
 		
 		var rreply ="	<h4>-->"+vo.userName+"</h4>" 
-		if(vo.replyNo ==null){
+		if(vo.replyNo === null){
 			rreply = "";
 		}
 		var html = 
@@ -138,7 +138,6 @@
 						console.error( response.message);
 						return ;
 					}
-					
 					render(response.data, true);
 					
 					$("#add-form")[0].reset();
@@ -157,7 +156,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 			var replyVo = {};
 			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"'] form");
 			replyVo.groupNo = selectedLi.children('input[name=groupNo]').val();
-			replyVo.depth = selectedLi.children('input[name=depth]').val() +1;
+			replyVo.depth = selectedLi.children('input[name=depth]').val();
 			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
 			replyVo.replyNo = $(this).data("no");
 			replyVo.name = selectedLi.children('input[name=reply-input-name]').val();
@@ -195,10 +194,12 @@ $(document).on("click", "input[name=addReply]", function(event){
 						console.error( response.message);
 						return ;
 					}
+					console.log(reopnse.data);
 					
 					render(response.data, false);
 					
 					selectedLi[0].reset();
+					selectedLi[0].children('div').hide();
 				},
 				error: function( jqXHR, status, e){
 					console.error( status + " : "+ jqXHR.responseText);
