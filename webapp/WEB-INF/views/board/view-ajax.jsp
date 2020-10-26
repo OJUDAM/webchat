@@ -93,7 +93,7 @@
 				});
 			},
 			error: function( jqXHR, status, e){
-				console.error( status+" : "+e);
+				console.error( status+" : "+jqXHR.responseText);
 			}
 		});
 	}
