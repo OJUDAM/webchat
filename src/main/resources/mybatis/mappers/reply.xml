@@ -76,4 +76,11 @@
 		 and order_no>= #{orderNo}
 	]]>
 </update>
+<select id="getGroupNo" parameterType="long">
+	<![CDATA[
+		select group_no
+		 from reply
+		where no=#{no}
+	]]>
+</select>
 </mapper>

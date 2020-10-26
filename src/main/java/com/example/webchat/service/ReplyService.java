@@ -37,4 +37,8 @@ public class ReplyService {
 		return replyRepository.getName(replyNo);
 	}
 
+	public Integer getGroupNo(Long no) {
+		return replyRepository.getGroupNo(no);
+	}
+
 }

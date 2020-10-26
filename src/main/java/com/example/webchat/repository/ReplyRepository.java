@@ -33,5 +33,8 @@ public class ReplyRepository {
 	public String getName(Long replyNo) {
 		return sqlSession.selectOne("reply.getName", replyNo);
 	}
+	public Integer getGroupNo(Long no) {
+		return sqlSession.selectOne("reply.getGroupNo",no);
+	}
 
 }
