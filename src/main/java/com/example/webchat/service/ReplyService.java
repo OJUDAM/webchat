@@ -41,4 +41,8 @@ public class ReplyService {
 		return replyRepository.getGroupNo(no);
 	}
 
+	public boolean deleteReply(ReplyVo vo) {
+		return replyRepository.delete(vo) == 1;
+	} 
+
 }

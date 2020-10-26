@@ -36,5 +36,8 @@ public class ReplyRepository {
 	public Integer getGroupNo(Long no) {
 		return sqlSession.selectOne("reply.getGroupNo",no);
 	}
+	public int delete(ReplyVo vo) {
+		return sqlSession.delete("reply.delete",vo);
+	}
 
 }

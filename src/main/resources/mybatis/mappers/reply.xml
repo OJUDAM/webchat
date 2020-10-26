@@ -83,4 +83,11 @@
 		where no=#{no}
 	]]>
 </select>
+<delete id="delete" parameterType="replyvo">
+	<![CDATA[
+		delete 
+		 from reply
+		where no = #{no} and passwd=#{password}
+	]]>
+</delete>
 </mapper>
