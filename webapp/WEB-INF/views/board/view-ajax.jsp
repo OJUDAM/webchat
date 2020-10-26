@@ -147,12 +147,12 @@
 							  "password="+password,
 							  
 						success: function(response){
-							if( response.reulst === "fail"){
+							if( response.result === "fail"){
 								console.error( response.message);
 								return ;
 							}
 							
-							if(reponse.data === -1){
+							if(response.data === -1){
 								$("#dialog-delete-form .validateTpis").hide();
 								$("#dialog-delete-form .validateTips.error").show();
 								$("#delete-password").val("");
