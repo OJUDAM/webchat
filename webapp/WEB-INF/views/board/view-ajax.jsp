@@ -155,7 +155,7 @@
 							}
 							
 							if(response.data === -1){
-								$("#dialog-delete-form .validateTpis").hide();
+								$("#dialog-delete-form .validateTips").hide();
 								$("#dialog-delete-form .validateTips.error").show();
 								$("#delete-password").val("");
 								return ;
@@ -370,7 +370,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 					<p class="validateTips normal">
 						작성시 입력했던 비밀번호를 입력하세요.
 					</p>
-					<p class="vaildateTips error" style="display:none">
+					<p class="validateTips error" style="display:none">
 						비밀번호가 틀립니다.
 					</p>
 					
