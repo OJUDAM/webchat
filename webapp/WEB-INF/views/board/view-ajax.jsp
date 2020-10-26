@@ -39,9 +39,9 @@
 			"	<strong>" + vo.name+ "</strong>" + 
 			"	<p>" + vo.message.replace(/\n/gi, "<br>")+"</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
-			"	<button id='add-reply'data-no='"+vo.no+"'>댓글 달기</button>" +
+			"	<button id='add-reply' data-no='"+vo.no+"'>댓글 달기</button>" +
 			"	<div id='guestbook' style='display: none'>" +
-			"   <form name='reply-add-form' action='' method='post'>" +
+			"   <form data-no='" + vo.no + "' name='reply-add-form' action='' method='post'>" +
 			"	<input type='hidden' name='groupNo' value='"+vo.groupNo+"'>" +
 			"	<input type='hidden' name='orderNo' value='"+vo.orderNo+"'>" +
 			"	<input type='hidden' name='depth' value='"+vo.depth+"'>" +
@@ -150,10 +150,11 @@ $(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
 			console.log("reply-ajax come in...");
 			var replyVo = {};
-			replyVo.groupNo = $("input[name=groupNo]").val();
-			replyVo.depth = $("input[name=depth]").val();
-			replyVo.orderNo = $("input[name=orderNo]").val();
-			
+			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"']");
+			replyVo.groupNo = selectedLi.children('input[name=groupNo]').val();
+			replyVo.depth = selectedLi.children('input[name=depth]').val();
+			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
+			console.log(replyVo);
 			replyVo.name = $("input[name=reply-input-name]").val();
 			if( replyVo.name === ""){
 				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
