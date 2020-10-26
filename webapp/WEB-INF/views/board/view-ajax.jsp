@@ -169,10 +169,10 @@ $(document).on("click", "input[name=addReply]", function(event){
 				return;
 			}
 			
-			replyVo.message = selectedLi.children('input[name=reply-ta-message]').val();
+			replyVo.message = selectedLi.children('textarea[name=reply-ta-message]').val();
 			if( replyVo.message === ""){
 				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
-					selectedLi.children('input[name=reply-ta-message]').focus();
+					selectedLi.children('textarea[name=reply-ta-message]').focus();
 				});
 				return;
 			}
