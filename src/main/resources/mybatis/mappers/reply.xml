@@ -53,6 +53,7 @@
 		       date_format(reg_date, '%Y-%m-%d') as regDate,
 		       group_no as groupNo,
 		       order_no as orderNo,
+		       reply_no as replyNo,
 		       depth
 		   from reply 
 		    where board_no = #{boardNo}
