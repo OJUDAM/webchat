@@ -194,7 +194,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 						console.error( response.message);
 						return ;
 					}
-					console.log(reopnse.data);
+					console.log(response.data);
 					
 					render(response.data, false);
 					
