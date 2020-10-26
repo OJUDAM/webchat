@@ -144,7 +144,7 @@
 			
 			
 		});
-		console.log(jQuery.type($("form[name=reply-add-form]")));
+		
 		//reply-ajax
 $(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
@@ -154,6 +154,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 			replyVo.groupNo = $("#list-guestbook li[data-no='"+ $(this).data("no") +"']").children('input[name=groupNo]').val();
 			replyVo.depth = selectedLi.children('input[name=depth]').val();
 			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
+			console.log($(this).data("no"));
 			console.log(replyVo);
 			replyVo.name = $("input[name=reply-input-name]").val();
 			if( replyVo.name === ""){
