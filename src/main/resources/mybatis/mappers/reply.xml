@@ -54,7 +54,7 @@
 		]]>
 	</if>
 	<![CDATA[
-		order by group_no desc, order_no asc
+		order by group_no desc, order_no desc
 		 limit 0, 5
 	]]>
 </select>
