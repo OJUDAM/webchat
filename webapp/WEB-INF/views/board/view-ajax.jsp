@@ -105,7 +105,7 @@
 			width: 300,
 			modal: true,
 			buttons: {
-				"삭제":funtion(){
+				"삭제":function(){
 					var no = $("#delete-no").val();
 					var password = $("#delete-password").val();
 					
@@ -115,6 +115,7 @@
 						dataType: "json",
 						data: "no="+no+"&"+
 							  "password="+password,
+							  
 						success: function(response){
 							if( response.reulst === "fail"){
 								console.error( response.message);
@@ -127,6 +128,7 @@
 								$("#delete-password").val("");
 								return ;
 							}
+							
 							$("#list-guestbook li[data-no='"+response.data+"']").remove();
 							dialogDelete.dialog("close");
 						},
@@ -146,6 +148,7 @@
 				$("#delete-password").val("");
 			}
 		});
+		
 		$( "#add-form").submit(function(event){
 			event.preventDefault();
 			
@@ -252,6 +255,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 				}
 			});
 		});
+		
 		$(document).on("click", "#list-guestbook li a", function(event){
 			event.preventDefault();
 			
@@ -265,6 +269,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 			window.no = $(this).data("no");
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
 		});
+		
 		$(document).on("click", "input[name=reply-cancle]", function(event){
 			event.preventDefault();
 			window.no = $(this).data("no");
