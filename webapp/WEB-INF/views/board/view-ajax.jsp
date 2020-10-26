@@ -150,7 +150,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
 			console.log("reply-ajax come in...");
 			var replyVo = {};
-			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"']");
+			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"'] form");
 			replyVo.groupNo = $("#list-guestbook li[data-no='"+ $(this).data("no") +"']").children('input[name=groupNo]').val();
 			replyVo.depth = selectedLi.children('input[name=depth]').val();
 			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
