@@ -199,7 +199,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 					render(response.data, false);
 					
 					selectedLi[0].reset();
-					selectedLi[0].children('div').hide();
+					selectedLi.children('div').hide();
 				},
 				error: function( jqXHR, status, e){
 					console.error( status + " : "+ jqXHR.responseText);
