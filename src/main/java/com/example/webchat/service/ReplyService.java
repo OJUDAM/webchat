@@ -15,7 +15,7 @@ public class ReplyService {
 	@Autowired
 	private ReplyRepository replyRepository;
 	
-	public List<BoardVo> getReplyList(Long startNo, Long boardNo) {
+	public List<ReplyVo> getReplyList(Long startNo, Long boardNo) {
 		
 		return replyRepository.getList(startNo, boardNo);
 	}

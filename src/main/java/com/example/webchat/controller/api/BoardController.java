@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.webchat.dto.JSONResult;
 import com.example.webchat.service.ReplyService;
-import com.example.webchat.vo.BoardVo;
 import com.example.webchat.vo.ReplyVo;
 
 @Controller("BoardControllerApi")
@@ -27,7 +26,7 @@ public class BoardController {
 	public JSONResult list( 
 			@RequestParam(value="sno", required=true, defaultValue="0") Long startNo,
 			@RequestParam(value="bno", required=true, defaultValue="0") Long boardNo){
-		List<BoardVo> list = replyService.getReplyList(startNo, boardNo);
+		List<ReplyVo> list = replyService.getReplyList(startNo, boardNo);
 		System.out.println(startNo+" : "+boardNo);
 		return JSONResult.success(list);
 	}

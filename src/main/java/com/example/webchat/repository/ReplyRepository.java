@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.example.webchat.vo.BoardVo;
 import com.example.webchat.vo.ReplyVo;
 
 @Repository
@@ -16,7 +15,7 @@ public class ReplyRepository {
 
 	@Autowired
 	private SqlSession sqlSession;
-	public List<BoardVo> getList(Long startNo, Long boardNo) {
+	public List<ReplyVo> getList(Long startNo, Long boardNo) {
 		Map<String, Long> map = new HashMap<>();
 		map.put("startNo", startNo);
 		map.put("boardNo", boardNo);

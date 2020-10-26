@@ -34,10 +34,15 @@
 	}
 	
 	var render = function(vo, mode) {
+		
+		var rreply ="	<h4>-->"+vo.userName+"</h3>" 
+		if(vo.replyNo ==null){
+			rreply = "";
+		}
 		var html = 
 			"<li data-no='" + vo.no + "'>" +
 			"	<strong>" + vo.name+ "</strong>" +
-			"	<h4>-->"+vo.userName+"</h3>"+
+			rreply+
 			"	<p>" +vo.message.replace(/\n/gi, "<br>")+ "</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
 			"	<button id='add-reply' data-no='"+vo.no+"'>댓글 달기</button>" +
