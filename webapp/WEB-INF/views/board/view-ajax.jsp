@@ -153,7 +153,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 			replyVo.groupNo = selectedLi.children('input[name=groupNo]').val();
 			replyVo.depth = selectedLi.children('input[name=depth]').val();
 			replyVo.orderNo = selectedLi.children('input[name=orderNo]').val();
-			console.log(replyVo);
+			
 			replyVo.name = selectedLi.children('input[name=reply-input-name]').val();
 			if( replyVo.name === ""){
 				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
@@ -176,6 +176,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 				});
 				return;
 			}
+			console.log(replyVo);
 			replyVo.boardNo = ${boardVo.no};
 			$.ajax({
 				url: "${pageContext.request.contextPath}/board/api/add",
