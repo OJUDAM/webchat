@@ -38,7 +38,7 @@
 			"<li data-no='" + vo.no + "'>" +
 			"	<strong>" + vo.name+ "</strong>" +
 			"	<h4>-->"+vo.userName+"</h3>"+
-			"	<p> +vo.message.replace(/\n/gi, "<br>")+"</P>" + 
+			"	<p>" +vo.message.replace(/\n/gi, "<br>")+ "</P>" + 
 			"   <a href='' data-no='" + vo.no + "'>삭제</a>"+ 
 			"	<button id='add-reply' data-no='"+vo.no+"'>댓글 달기</button>" +
 			"	<div id='guestbook' style='display: none'>" +
