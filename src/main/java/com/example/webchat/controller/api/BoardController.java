@@ -41,7 +41,7 @@ public class BoardController {
 			vo.setUserName(replyService.getName(vo.getReplyNo()));
 		}
 		
-		vo.setNo(replyService.addReply( vo ));
+		replyService.addReply( vo );
 		
 		return JSONResult.success(vo);
 	}
