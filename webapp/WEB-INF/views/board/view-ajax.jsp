@@ -216,9 +216,10 @@ $(document).on("click", "input[name=addReply]", function(event){
 			window.no = $(this).data("no");
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').hide();
 		});
-		#("#btn-next").click(function(){
+		
+		$("#btn-next").click(function(){
 			fetchList();
-		})
+		});
 		fetchList();
 	});
 	
