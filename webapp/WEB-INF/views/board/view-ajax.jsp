@@ -67,7 +67,7 @@
 		if(vo.userName == null){
 			vo.userName = "삭제된 글"
 		}
-		var rreply ="	<h4>-->"+vo.userName+"</h4>" 
+		var rreply ="	<h4>@ "+vo.userName+"</h4>" 
 		if(vo.replyNo === null){
 			rreply = "";
 		}
