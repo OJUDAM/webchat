@@ -1,5 +1,8 @@
 package com.example.webchat.controller;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,11 +25,12 @@ public class MainController {
 	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
 		Cookie[] cookies = request.getCookies();
 		if(cookies == null) {
-			String name = webchatService.getNickName();
-			Cookie cookie = new Cookie("name",name);
+			String nickName = URLEncoder.encode(webchatService.getNickName());
+			Cookie cookie = new Cookie("name",nickName);
 			response.addCookie(cookie);
 		}
-		String name = cookies[0].getValue();
+		String cookieValue = cookies[0].getValue();
+		String name = URLDecoder.decode(cookieValue);
 		model.addAttribute("nickName",name);
 		return "/WEB-INF/views/main/index.jsp";
 	}
