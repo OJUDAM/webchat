@@ -1,9 +1,14 @@
 package com.example.webchat.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.webchat.service.WebchatService;
@@ -13,12 +18,20 @@ public class MainController {
 	@Autowired
 	private WebchatService webchatService;
 
-	
+	@RequestMapping(value={"/","/main"}, method=RequestMethod.GET)
+	public void AddCookie(HttpServletResponse response ,HttpServletRequest request) {
+		if(request.getCookies() == null) {
+			String name = webchatService.getNickName();
+			Cookie cookie = new Cookie("name",name);
+			response.addCookie(cookie);
+		}
+	}
 	@RequestMapping({"/","/main"})
-	public String index(Model model) {
-		String name = webchatService.getNickName();
-		model.addAttribute("nickName",name);
+	public String index(HttpServletRequest request,Model model) {
+		Cookie[] cookies = request.getCookies();
 		
+		String name = cookies[0].getValue();
+		model.addAttribute("nickName",name);
 		return "/WEB-INF/views/main/index.jsp";
 	}
 	
