@@ -26,30 +26,22 @@ public class MainController {
 	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
 		Cookie[] cookies = request.getCookies();
 		boolean check = false;
+		Cookie cookieValue=null;
 		for(Cookie cookie : cookies) {
 			if(cookie.getName().equals("name")) {
+				cookieValue= cookie;
 				check = true;
 			}
 		}
 		if(!check) {
-			String nickName="";
-			try {
-				nickName = URLEncoder.encode(webchatService.getNickName(),java.nio.charset.StandardCharsets.UTF_8.toString());
-			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			String nickName= webchatService.getNickName();
 			Cookie cookie = new Cookie("name",nickName);
+			cookieValue=cookie;
 			response.addCookie(cookie);
 		}
-		String cookieValue = cookies[0].getValue();
-		String name="";
-		try {
-			name = URLDecoder.decode(cookieValue,java.nio.charset.StandardCharsets.UTF_8.toString());
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		String name = cookieValue.getValue();
+		
 		model.addAttribute("nickName",name);
 		return "/WEB-INF/views/main/index.jsp";
 	}
