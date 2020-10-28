@@ -19,7 +19,7 @@ import com.example.webchat.service.WebchatService;
 @Controller
 @ServerEndpoint(value="/echo.do")
 public class WebSocketChat {
-	@Autowired
+
 	private WebchatService webchatService;
 	
 	private static final List<Session> sessionList=new ArrayList<>();

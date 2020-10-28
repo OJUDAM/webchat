@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.opencsv.CSVReader;
 
-@Repository
+
 public class WebChatRepository {
 
 	public Map<String, String> getNickName() {
