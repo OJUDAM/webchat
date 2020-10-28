@@ -25,7 +25,13 @@ public class MainController {
 	@RequestMapping(value={"/","/main"}, method=RequestMethod.GET)
 	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
 		Cookie[] cookies = request.getCookies();
-		if(cookies == null) {
+		boolean check = false;
+		for(Cookie cookie : cookies) {
+			if(cookie.getName().equals("name")) {
+				check = true;
+			}
+		}
+		if(!check) {
 			String nickName="";
 			try {
 				nickName = URLEncoder.encode(webchatService.getNickName(),java.nio.charset.StandardCharsets.UTF_8.toString());
