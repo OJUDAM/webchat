@@ -30,7 +30,7 @@ public class WebSocketChat {
 	
 	@OnOpen
 	public void onOpen(Session session) {
-		//System.out.println(webchatService.getNickName());
+		System.out.println(webchatService.getNickName());
 		System.out.println("Open session id: "+session.getId());
 		
 		try {
