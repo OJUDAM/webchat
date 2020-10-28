@@ -25,6 +25,7 @@ public class WebChatRepository {
 		CSVReader firstReader =null;
 		CSVReader secondReader = null;
 		try {
+			System.out.println("debug");
 			firstIs = new InputStreamReader(new FileInputStream(csvFileName),"UTF-8");
 			firstReader = new CSVReader(firstIs, ',','"',(int)(Math.random()*24672)+1);
 			firstName=firstReader.readNext()[1];
