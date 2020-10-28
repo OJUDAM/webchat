@@ -52,6 +52,7 @@
         var txt = document.getElementById('messages');
         txt.value+= '\r'+text;
     }
+    openSocket();
 	</script>
 </head>
 <body>
@@ -65,7 +66,7 @@
 						<input type="text" id="messageinput">
 					</div>
 					<div>
-						<button type="button" onclick="openSocket();">Open</button>
+						<button type="button" onclick="openSocket();" style="display:none">Open</button>
 						<button type="button" onclick="send();">Send</button>
 						<button type="button" onclick="closeSocket();">Close</button>
 					</div>

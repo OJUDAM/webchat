@@ -34,7 +34,7 @@ public class WebSocketChat {
 		
 		try {
 			final Basic basic=session.getBasicRemote();
-			basic.sendText("Connection Extablished");
+			basic.sendText("채팅방에 입장하였습니다!!");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
