@@ -16,7 +16,7 @@ public class WebchatService {
 		System.out.println("service");
 		String name = "";
 		Map<String, String> map = webchatRepository.getNickName();
-		name = map.get("firstName") + "의"+map.get("secondName");
+		name = map.get("firstName") + "의 "+map.get("secondName");
 		return name;
 	}
 }
