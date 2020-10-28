@@ -26,11 +26,12 @@ public class WebSocketChat {
 	
 	public WebSocketChat() {
 		System.out.println("웹소켓(서버) 객체 생성");
+		System.out.println(webchatService.getNickName());
 	}
 	
 	@OnOpen
 	public void onOpen(Session session) {
-		System.out.println(webchatService.getNickName());
+		
 		System.out.println("Open session id: "+session.getId());
 		
 		try {
