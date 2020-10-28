@@ -25,23 +25,34 @@ public class MainController {
 	@RequestMapping(value={"/","/main"}, method=RequestMethod.GET)
 	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
 		Cookie[] cookies = request.getCookies();
-		boolean check = false;
-		Cookie cookieValue=null;
+		boolean check =false;
+		Cookie nameCookie = null;
 		for(Cookie cookie : cookies) {
 			if(cookie.getName().equals("name")) {
-				cookieValue= cookie;
-				check = true;
+				nameCookie = cookie;
+				check = false;
 			}
 		}
-		if(!check) {
-			String nickName= webchatService.getNickName();
+		if(cookies == null) {
+			String nickName="";
+			try {
+				nickName = URLEncoder.encode(webchatService.getNickName(),java.nio.charset.StandardCharsets.UTF_8.toString());
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Cookie cookie = new Cookie("name",nickName);
-			cookieValue=cookie;
+			nameCookie = cookie;
 			response.addCookie(cookie);
 		}
-		
-		String name = cookieValue.getValue();
-		
+		String cookieValue = nameCookie.getValue();
+		String name="";
+		try {
+			name = URLDecoder.decode(cookieValue,java.nio.charset.StandardCharsets.UTF_8.toString());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addAttribute("nickName",name);
 		return "/WEB-INF/views/main/index.jsp";
 	}
