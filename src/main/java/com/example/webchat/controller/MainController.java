@@ -9,9 +9,9 @@ import com.example.webchat.service.WebchatService;
 
 @Controller
 public class MainController {
-	
 	@Autowired
 	private WebchatService webchatService;
+
 	
 	@RequestMapping({"/","/main"})
 	public String index() {
