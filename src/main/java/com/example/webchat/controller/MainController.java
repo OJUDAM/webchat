@@ -27,12 +27,16 @@ public class MainController {
 		Cookie[] cookies = request.getCookies();
 		boolean check =false;
 		Cookie nameCookie = null;
-		for(Cookie cookie : cookies) {
-			if(cookie.getName().equals("name")) {
-				nameCookie = cookie;
-				check = true;
+		if(cookies != null) {
+			for(Cookie cookie : cookies) {
+				if(cookie.getName().equals("name")) {
+					nameCookie = cookie;
+					check = true;
+				}
 			}
 		}
+		
+		//쿠키가 없는경우
 		if(!check) {
 			String nickName="";
 			try {
@@ -45,6 +49,8 @@ public class MainController {
 			nameCookie = cookie;
 			response.addCookie(cookie);
 		}
+		
+		//쿠키 있는경우
 		String cookieValue = nameCookie.getValue();
 		String name="";
 		try {
