@@ -35,6 +35,15 @@ public class WebChatRepository {
 		} catch (IOException e) {
 			System.out.println("파일경로오류");
 			e.printStackTrace();
+		}finally {
+			try {
+				firstReader.close();
+				secondReader.close();
+				firstIs.close();
+				secondIs.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
