@@ -15,7 +15,7 @@ public class WebChatRepository {
 
 	public Map<String, String> getNickName() {
 		//파일 경로
-		String csvFileName = "/home/var/data/wiki.csv";
+		String csvFileName = "/var/data/wiki.csv";
 		InputStreamReader secondIs = null;
 		InputStreamReader firstIs = null;
 		Map<String, String> map = new HashMap<>();
@@ -25,7 +25,7 @@ public class WebChatRepository {
 		CSVReader firstReader =null;
 		CSVReader secondReader = null;
 		try {
-			System.out.println("debug");
+			System.out.println("----------------debug");
 			firstIs = new InputStreamReader(new FileInputStream(csvFileName),"UTF-8");
 			firstReader = new CSVReader(firstIs, ',','"',(int)(Math.random()*24672)+1);
 			firstName=firstReader.readNext()[1];
