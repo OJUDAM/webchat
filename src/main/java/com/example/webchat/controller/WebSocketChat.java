@@ -20,14 +20,12 @@ import com.example.webchat.service.WebchatService;
 @ServerEndpoint(value="/echo.do")
 public class WebSocketChat {
 	
-	@Autowired
-	private WebchatService webchatService;
 	
 	private static final List<Session> sessionList=new ArrayList<>();
 	
 	public WebSocketChat() {
 		System.out.println("웹소켓(서버) 객체 생성");
-		System.out.println(webchatService.getNickName());
+	
 	}
 	
 	@OnOpen
