@@ -15,7 +15,7 @@ public class WebChatRepository {
 
 	public Map<String, String> getNickName() {
 		//파일 경로
-		String csvFileName = "/var/data/wiki.csv";
+		String csvFileName = "/home/var/data/wiki.csv";
 		InputStreamReader secondIs = null;
 		InputStreamReader firstIs = null;
 		Map<String, String> map = new HashMap<>();
