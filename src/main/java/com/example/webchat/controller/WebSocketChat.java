@@ -71,7 +71,7 @@ public class WebSocketChat {
 	
 	@OnError
 	public void onError(Throwable e, Session session) {
-		System.out.println("OnError");
+		System.out.println(e);
 	}
 	
 	@OnClose
