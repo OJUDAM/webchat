@@ -24,7 +24,7 @@ public class WebChatRepository {
 		int randomNum = (int)(Math.random()*24671)+1;
 		try {
 			is = new InputStreamReader(new FileInputStream(csvFileName),"EUC-KR");
-			CSVReader reader = new CSVReader(is, ',','"',24672);
+			CSVReader reader = new CSVReader(is, ',','"',24671);
 			firstName=reader.readNext()[0];
 		} catch (IOException e) {
 			
