@@ -11,29 +11,26 @@ import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.example.webchat.service.WebchatService;
 
 @Controller
 @ServerEndpoint(value="/echo.do")
 public class WebSocketChat {
+	@Autowired
+	private WebchatService webchatService;
+	
 	private static final List<Session> sessionList=new ArrayList<>();
 	
 	public WebSocketChat() {
 		System.out.println("웹소켓(서버) 객체 생성");
 	}
 	
-	@RequestMapping(value="/chat.do")
-	public ModelAndView getChatViewPage(ModelAndView mav) {
-		mav.setViewName("/WEB-INF/views/chat.jsp");
-		
-		//mav.addObject("id",id);
-		return mav;
-	}
-	
 	@OnOpen
 	public void onOpen(Session session) {
+		System.out.println(webchatService.getNickName());
 		System.out.println("Open session id: "+session.getId());
 		
 		try {
