@@ -19,17 +19,13 @@ public class MainController {
 	private WebchatService webchatService;
 
 	@RequestMapping(value={"/","/main"}, method=RequestMethod.GET)
-	public void AddCookie(HttpServletResponse response ,HttpServletRequest request) {
-		if(request.getCookies() == null) {
+	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
+		Cookie[] cookies = request.getCookies();
+		if(cookies == null) {
 			String name = webchatService.getNickName();
 			Cookie cookie = new Cookie("name",name);
 			response.addCookie(cookie);
 		}
-	}
-	@RequestMapping({"/","/main"})
-	public String index(HttpServletRequest request,Model model) {
-		Cookie[] cookies = request.getCookies();
-		
 		String name = cookies[0].getValue();
 		model.addAttribute("nickName",name);
 		return "/WEB-INF/views/main/index.jsp";
