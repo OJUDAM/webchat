@@ -15,19 +15,25 @@ public class WebChatRepository {
 
 	public Map<String, String> getNickName() {
 		//파일 경로
-		String csvFileName = "data/wiki.csv";
-		InputStreamReader is = null;
+		String csvFileName = "/var/data/wiki.csv";
+		InputStreamReader secondIs = null;
+		InputStreamReader firstIs = null;
 		Map<String, String> map = new HashMap<>();
 		String firstName = "";
 		String secondName = "";
 		
-		int randomNum = (int)(Math.random()*24671)+1;
+		CSVReader firstReader =null;
+		CSVReader secondReader = null;
 		try {
-			is = new InputStreamReader(new FileInputStream(csvFileName),"EUC-KR");
-			CSVReader reader = new CSVReader(is, ',','"',24671);
-			firstName=reader.readNext()[0];
-		} catch (IOException e) {
+			firstIs = new InputStreamReader(new FileInputStream(csvFileName),"UTF-8");
+			firstReader = new CSVReader(firstIs, ',','"',(int)(Math.random()*24672)+1);
+			firstName=firstReader.readNext()[1];
 			
+			secondIs = new InputStreamReader(new FileInputStream(csvFileName),"UTF-8");
+			secondReader = new CSVReader(secondIs, ',','"',(int)(Math.random()*24672)+1);
+			secondName=secondReader.readNext()[1];
+		} catch (IOException e) {
+			System.out.println("파일경로오류");
 			e.printStackTrace();
 		}
 		
