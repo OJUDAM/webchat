@@ -1,5 +1,6 @@
 package com.example.webchat.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
@@ -25,12 +26,24 @@ public class MainController {
 	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
 		Cookie[] cookies = request.getCookies();
 		if(cookies == null) {
-			String nickName = URLEncoder.encode(webchatService.getNickName());
+			String nickName="";
+			try {
+				nickName = URLEncoder.encode(webchatService.getNickName(),java.nio.charset.StandardCharsets.UTF_8.toString());
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Cookie cookie = new Cookie("name",nickName);
 			response.addCookie(cookie);
 		}
 		String cookieValue = cookies[0].getValue();
-		String name = URLDecoder.decode(cookieValue);
+		String name="";
+		try {
+			name = URLDecoder.decode(cookieValue,java.nio.charset.StandardCharsets.UTF_8.toString());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addAttribute("nickName",name);
 		return "/WEB-INF/views/main/index.jsp";
 	}
