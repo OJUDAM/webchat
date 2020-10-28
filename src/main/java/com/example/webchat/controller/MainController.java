@@ -30,7 +30,7 @@ public class MainController {
 		for(Cookie cookie : cookies) {
 			if(cookie.getName().equals("name")) {
 				nameCookie = cookie;
-				check = false;
+				check = true;
 			}
 		}
 		if(!check) {
