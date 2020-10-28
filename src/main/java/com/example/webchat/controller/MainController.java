@@ -33,7 +33,7 @@ public class MainController {
 				check = false;
 			}
 		}
-		if(cookies == null) {
+		if(!check) {
 			String nickName="";
 			try {
 				nickName = URLEncoder.encode(webchatService.getNickName(),java.nio.charset.StandardCharsets.UTF_8.toString());
