@@ -18,14 +18,14 @@
 	var nickName;
 	
 	function setNickName(){
-		nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
-		console.log($("#sender").val());
+				console.log($("#sender").val());
 		console.log(document.getElementById("sender").value)
 		console.log(nickName);
 	}
 	
     function openSocket(){
-        
+    	nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
+
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
             return;
@@ -47,8 +47,9 @@
     }
     
     function send(){
-    	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
     	$("#sender").val(nickName);
+    	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
+    	
     	ws.send(text);
         text="";
     }
