@@ -18,6 +18,7 @@
 	var nickName = decodeURIComponent("${cookie.name.value}");
 	console.log(nickName);
 	console.log($("#sender").val());
+	console.log($("#sender").text());
 	$("#sender").val('nickName');
     
     function openSocket(){
