@@ -24,7 +24,7 @@ public class MainController {
 
 	@RequestMapping(value={"/","/main"})
 	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
-		Cookie[] cookies = request.getCookies();
+		/*Cookie[] cookies = request.getCookies();
 		boolean check =false;
 		Cookie nameCookie = null;
 		if(cookies != null) {
@@ -59,7 +59,7 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		model.addAttribute("nickName",name);
+		model.addAttribute("nickName",name);*/
 		return "/WEB-INF/views/main/index.jsp";
 	}
 	
