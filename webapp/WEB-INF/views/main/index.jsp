@@ -13,7 +13,43 @@
 <link href="${pageContext.request.contextPath }/assets/css/main.css"
 	rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
-	<script defer>
+	
+</head>
+<body>
+	<div id="container">
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+		<div id="wrapper">
+			<div id="content">
+				<div id="site-introduction">
+					<div>
+						<input type="text" id="sender" value="닉네임" style="display:none">
+						<input type="text" id="messageinput">
+					</div>
+					<div>
+						<button type="button" onclick="openSocket();" style="display:none">Open</button>
+						<button type="button" onclick="send();">Send</button>
+						<button type="button" onclick="closeSocket();">Close</button>
+					</div>
+					<div>
+						<textarea id="messages" style="overflow-y:scroll" rows="20" cols="30"></textarea> 
+					</div>
+					<h2>안녕하세요. 오주담의 mysite에 오신 것을 환영합니다.</h2>
+					<p>
+						이 사이트는 웹 프로그램밍 실습과제 예제 사이트입니다.<br> <br> <a
+							href="${pageContext.request.contextPath }/guestbook">방명록</a>에 글
+						남기기<br>
+					</p>
+				</div>
+			</div>
+		</div>
+		<c:import url="/WEB-INF/views/include/navigation.jsp">
+			<c:param name="menu" value="main"/>
+		</c:import>
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+
+	</div>
+</body>
+<script defer>
 	var ws;
 	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
 	
@@ -55,39 +91,4 @@
     }
     openSocket();
 	</script>
-</head>
-<body>
-	<div id="container">
-		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-		<div id="wrapper">
-			<div id="content">
-				<div id="site-introduction">
-					<div>
-						<input type="text" id="sender" value="닉네임" style="display:none">
-						<input type="text" id="messageinput">
-					</div>
-					<div>
-						<button type="button" onclick="openSocket();" style="display:none">Open</button>
-						<button type="button" onclick="send();">Send</button>
-						<button type="button" onclick="closeSocket();">Close</button>
-					</div>
-					<div>
-						<textarea id="messages" style="overflow-y:scroll" rows="20" cols="30"></textarea> 
-					</div>
-					<h2>안녕하세요. 오주담의 mysite에 오신 것을 환영합니다.</h2>
-					<p>
-						이 사이트는 웹 프로그램밍 실습과제 예제 사이트입니다.<br> <br> <a
-							href="${pageContext.request.contextPath }/guestbook">방명록</a>에 글
-						남기기<br>
-					</p>
-				</div>
-			</div>
-		</div>
-		<c:import url="/WEB-INF/views/include/navigation.jsp">
-			<c:param name="menu" value="main"/>
-		</c:import>
-		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
-
-	</div>
-</body>
 </html>
