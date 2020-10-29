@@ -64,7 +64,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<div>
-						<input  type="text" id="sender" style="display:none">
+						<input  type="text" id="sender" value="" style="display:none">
 						<input type="text" id="messageinput">
 					</div>
 					<div>
