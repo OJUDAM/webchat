@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -60,7 +60,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<div>
-						<input  type="text" id="sender" value="14" style="display:none">
+						<input  type="text" id="sender" value="<%URLDecoder.decode("${cookie.name.value}"); %>" style="display:none">
 						<input type="text" id="messageinput">
 					</div>
 					<div>
