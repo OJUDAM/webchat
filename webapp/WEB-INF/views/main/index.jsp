@@ -15,6 +15,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 <script defer>
 	var ws;
+	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
 	
     function openSocket(){
         
@@ -39,8 +40,8 @@
     }
     
     function send(){
-    	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
     	$("#sender").val(nickName);
+    	console.log(nickName);
     	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
         ws.send(text);
         text="";
