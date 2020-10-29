@@ -63,7 +63,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<div>
-						<input type="text" id="sender" value="what" style="display:none">
+						<input type="text" id="sender" value="닉네임" style="display:none">
 						<input type="text" id="messageinput">
 					</div>
 					<div>
