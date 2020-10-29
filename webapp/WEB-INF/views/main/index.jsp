@@ -18,10 +18,9 @@
 	var nickName;
 	
 	function setNickName(){
+		nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
 		console.log($("#sender").val());
 		console.log(document.getElementById("sender").value)
-		nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
-		$("#sender").val(nickName);
 		console.log(nickName);
 	}
 	
@@ -49,7 +48,8 @@
     
     function send(){
     	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-        ws.send(text);
+    	$("#sender").val(nickName);
+    	ws.send(text);
         text="";
     }
     
