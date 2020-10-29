@@ -16,7 +16,7 @@
 	<script defer>
 	'use strict';
 	var ws;
-	var nickName = decodeURI("${cookie.name.value}");
+	var nickName = decodeURI(escape("${cookie.name.value}"));
 	$("#sender").val(nickName);
 	
     function openSocket(){
