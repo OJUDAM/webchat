@@ -18,7 +18,6 @@
 	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
 	
     function openSocket(){
-    	$("#sender").val(nickName);
         
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
@@ -41,8 +40,8 @@
     }
     
     function send(){
-        var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-        
+    	$("#sender").val(nickName);
+    	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
         ws.send(text);
         text="";
     }
