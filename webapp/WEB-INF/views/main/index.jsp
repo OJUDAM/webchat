@@ -17,7 +17,7 @@
 	var ws;
 	var nickName = decodeURIComponent("${cookie.name.value}");
 	console.log(nickName);
-	$("input#sender").val(nickName);
+	$("#sender").val('nickName');
     
     function openSocket(){
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
