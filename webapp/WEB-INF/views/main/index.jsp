@@ -62,7 +62,11 @@
         txt.value+= '\r'+text;
     }
     openSocket();
-    setNickName();
+    
+    $(function(){
+    	setNickName();	
+    })
+    
     </script>
 </head>
 <body>
