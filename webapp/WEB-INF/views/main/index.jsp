@@ -19,6 +19,7 @@
 	
 	function setNickName(){
 		console.log($("#sender").val());
+		console.log(document.getElementById("sender").value)
 		nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
 		$("#sender").val(nickName);
 		console.log(nickName);
