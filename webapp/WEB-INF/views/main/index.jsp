@@ -14,7 +14,6 @@
 	rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 	<script defer>
-	'use strict';
 	var ws;
 	var nickName = decodeURIComponent("${cookie.name.value}");
 	console.log(nickName);
