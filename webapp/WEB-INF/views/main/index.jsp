@@ -41,7 +41,7 @@
     
     function send(){
     	$("#sender").val(nickName);
-    	console.log(nickName);
+    	console.log("----"+nickName);
     	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
         ws.send(text);
         text="";
