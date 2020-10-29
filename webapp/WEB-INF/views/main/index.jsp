@@ -18,10 +18,9 @@
 	var ws;
 	var nickName = decodeURIComponent("${cookie.name.value}");
 	console.log(nickName);
-	
-	
+	$("#sender").val(nickName);
+    
     function openSocket(){
-    	$("#sender").val(nickName);
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
             return;
@@ -65,7 +64,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<div>
-						<input  type="text" id="sender" value="nickName" style="display:none">
+						<input type="text" id="sender" value="what" style="display:none">
 						<input type="text" id="messageinput">
 					</div>
 					<div>
