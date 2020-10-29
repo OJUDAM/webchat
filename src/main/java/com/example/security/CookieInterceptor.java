@@ -38,8 +38,8 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 		if(!check) {
 			String nickName="";
 			try {
-				nickName = URLEncoder.encode(webchatService.getNickName(),java.nio.charset.StandardCharsets.UTF_8.toString());
-			} catch (UnsupportedEncodingException e) {
+				nickName = URLEncoder.encode(webchatService.getNickName());
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
