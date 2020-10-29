@@ -54,6 +54,7 @@
         var txt = document.getElementById('messages');
         txt.value+= '\r'+text;
     }
+    location.reload();
     openSocket();
 	</script>
 </head>
