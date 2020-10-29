@@ -37,6 +37,7 @@ public class BoardController {
 		return "/WEB-INF/views/board/index.jsp";
 	}
 	
+	@Auth
 	@RequestMapping(value="/write", method=RequestMethod.GET)
 	public String write() {
 		return "/WEB-INF/views/board/write.jsp";
@@ -68,6 +69,7 @@ public class BoardController {
 		return "/WEB-INF/views/board/view.jsp";
 	}
 	
+	@Auth
 	@RequestMapping("/reply/{no}")
 	public String reply(@PathVariable("no") Long no, Model model) {
 		
