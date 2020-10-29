@@ -17,7 +17,7 @@
 	var ws;
 	var nickName = decodeURIComponent("${cookie.name.value}");
 	console.log(nickName);
-	console.log($("#sender").val());
+	console.log($("#sender").value());
 	console.log($("#sender").text());
 	$("#sender").val('nickName');
     
