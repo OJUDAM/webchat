@@ -19,7 +19,6 @@
 	
     function openSocket(){
         nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
-        console.log("openSocket----------"+nickName);
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
             return;
@@ -38,12 +37,11 @@
         ws.onclose=function(event){
             writeResponse("Connection closed");
         }
+        location.reload();
     }
     
     function send(){
-    	console.log("send----------"+nickName);
     	$("#sender").val(nickName);
-    	console.log("----"+nickName);
     	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
         ws.send(text);
         text="";
@@ -57,8 +55,7 @@
         txt.value+= '\r'+text;
     }
     openSocket();
-    console.log("last----------"+nickName);
-	</script>
+    </script>
 </head>
 <body>
 	<div id="container">
