@@ -60,7 +60,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<div>
-						<input  type="text" id="sender" value="${nickName }" style="display:none">
+						<input  type="text" id="sender" value="14" style="display:none">
 						<input type="text" id="messageinput">
 					</div>
 					<div>
