@@ -16,7 +16,7 @@
 	<script defer>
 	'use strict';
 	var ws;
-	var nickName = decodeURIComponent("${cookie.name.value}");
+	var nickName = decodeURIComponent(escape("${cookie.name.value}"));
 	console.log(nickName);
 	$("#sender").val(nickName);
 	
