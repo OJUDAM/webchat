@@ -51,6 +51,12 @@
 			<bean class="com.example.security.AuthLogoutInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
+			<mvc:mapping path="/" />
+			<mvc:mapping path="/main" />
+			<bean class="com.example.security.CookieInterceptor" />
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/user/auth"/>
 			<mvc:exclude-mapping path="/user/logout"/>
