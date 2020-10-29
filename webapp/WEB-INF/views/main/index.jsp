@@ -15,9 +15,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 	<script defer>
 	var ws;
-	var nickName = decodeURIComponent("${cookie.name.value}");
-	console.log(nickName);
-	console.log($("#sender").text());
+	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
 	
     function openSocket(){
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
