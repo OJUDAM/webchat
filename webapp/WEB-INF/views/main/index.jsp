@@ -16,6 +16,9 @@
 	<script defer>
 	'use strict';
 	var ws;
+	var nickName = decodeURI("${cookie.name.value}");
+	$("#sender").val(nickName);
+	
     function openSocket(){
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
@@ -60,7 +63,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<div>
-						<input  type="text" id="sender" value="<%=URLDecoder.decode("'+${cookie.name.value}+'")%>" style="display:none">
+						<input  type="text" id="sender" style="display:none">
 						<input type="text" id="messageinput">
 					</div>
 					<div>
