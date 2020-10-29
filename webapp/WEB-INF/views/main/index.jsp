@@ -17,6 +17,7 @@
 	'use strict';
 	var ws;
 	var nickName = decodeURI(escape("${cookie.name.value}"));
+	console.log(nickName);
 	$("#sender").val(nickName);
 	
     function openSocket(){
