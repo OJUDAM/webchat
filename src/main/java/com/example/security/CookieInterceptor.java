@@ -7,9 +7,9 @@ import java.net.URLEncoder;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.example.webchat.service.WebchatService;
@@ -28,7 +28,7 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 		if(cookies != null) {
 			for(Cookie cookie : cookies) {
 				if(cookie.getName().equals("name")) {
-	//				nameCookie = cookie;
+					nameCookie = cookie;
 					check = true;
 				}
 			}
@@ -48,7 +48,7 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 			response.addCookie(cookie);
 		}
 		
-		/*//쿠키 있는경우
+		//쿠키 있는경우
 		String cookieValue = nameCookie.getValue();
 		String name="";
 		try {
@@ -57,7 +57,10 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		*/
+		
+		HttpSession session = request.getSession(true);
+		session.setAttribute("nickName",name);
+		
 		return true;
 	}
 
