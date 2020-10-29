@@ -26,6 +26,7 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 			for(Cookie cookie : cookies) {
 				if(cookie.getName().equals("name")) {
 					check = true;
+					return true;
 				}
 			}
 		}
