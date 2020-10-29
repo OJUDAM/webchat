@@ -19,7 +19,7 @@
 	
 	function setNickName(){
 				console.log($("#sender").val());
-		console.log(document.getElementById("sender").value)
+		console.log(document.getElementById("sender").value);
 		console.log(nickName);
 	}
 	
