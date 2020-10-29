@@ -13,7 +13,50 @@
 <link href="${pageContext.request.contextPath }/assets/css/main.css"
 	rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
+<script defer>
+	var ws;
+	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
 	
+    function openSocket(){
+        
+        if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
+            writeResponse("WebSocket is already opened.");
+            return;
+        }
+        //웹소켓 객체 만드는 코드
+        ws=new WebSocket("ws://djam1020.gq/webchat/echo.do");
+        
+        ws.onopen=function(event){
+            if(event.data===undefined) return;
+            
+            writeResponse(event.data);
+        };
+        ws.onmessage=function(event){
+            writeResponse(event.data);
+        };
+        ws.onclose=function(event){
+            writeResponse("Connection closed");
+        }
+    }
+    
+    function send(){
+    	console.log($("#sender").val());
+    	$("#sender").val(nickName);
+    	console.log($("#sender").val());
+    	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
+        ws.send(text);
+        text="";
+    }
+    
+    function closeSocket(){
+        ws.close();
+    }
+    function writeResponse(text){
+        var txt = document.getElementById('messages');
+        txt.value+= '\r'+text;
+    }
+    openSocket();
+	</script>
 </head>
 <body>
 	<div id="container">
@@ -49,46 +92,5 @@
 
 	</div>
 </body>
-<script defer>
-	var ws;
-	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
-	
-    function openSocket(){
-        
-        if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
-            writeResponse("WebSocket is already opened.");
-            return;
-        }
-        //웹소켓 객체 만드는 코드
-        ws=new WebSocket("ws://djam1020.gq/webchat/echo.do");
-        
-        ws.onopen=function(event){
-            if(event.data===undefined) return;
-            
-            writeResponse(event.data);
-        };
-        ws.onmessage=function(event){
-            writeResponse(event.data);
-        };
-        ws.onclose=function(event){
-            writeResponse("Connection closed");
-        }
-    }
-    
-    function send(){
-    	$("#sender").val(nickName);
-    	var text=document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-        ws.send(text);
-        text="";
-    }
-    
-    function closeSocket(){
-        ws.close();
-    }
-    function writeResponse(text){
-        var txt = document.getElementById('messages');
-        txt.value+= '\r'+text;
-    }
-    openSocket();
-	</script>
+
 </html>
