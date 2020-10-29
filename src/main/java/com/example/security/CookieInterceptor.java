@@ -48,18 +48,7 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 			response.addCookie(cookie);
 		}
 		
-		//쿠키 있는경우
-		String cookieValue = nameCookie.getValue();
-		String name="";
-		try {
-			name = URLDecoder.decode(cookieValue,java.nio.charset.StandardCharsets.UTF_8.toString());
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		HttpSession session = request.getSession(true);
-		session.setAttribute("nickName",name);
 		
 		return true;
 	}
