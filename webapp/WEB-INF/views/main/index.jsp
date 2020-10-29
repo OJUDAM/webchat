@@ -18,8 +18,10 @@
 	var nickName;
 	
 	function setNickName(){
+		console.log($("#sender").val());
 		nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
 		$("#sender").val(nickName);
+		console.log(nickName);
 	}
 	
     function openSocket(){
