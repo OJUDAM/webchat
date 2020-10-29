@@ -18,7 +18,7 @@
 	'use strict';
 	var ws;
     var messages=document.getElementById("messages");
-   	var nickName = decodeURIComponent("${cookie.name.value}");
+   	var nickName = decodeURIComponent(escape("${cookie.name.value}"));
     $("#sender").val(nickName);
     function openSocket(){
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
