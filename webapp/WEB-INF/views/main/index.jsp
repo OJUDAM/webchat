@@ -18,9 +18,10 @@
 	var ws;
 	var nickName = decodeURIComponent("${cookie.name.value}");
 	console.log(nickName);
-	$("#sender").val(nickName);
+	
 	
     function openSocket(){
+    	$("#sender").val(nickName);
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
             return;
