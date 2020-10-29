@@ -15,10 +15,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 <script defer>
 	var ws;
-	var nickName = decodeURIComponent("${cookie.name.value}").replace("+"," ");
+	var nickName;
 	
     function openSocket(){
-        
+        nickName=decodeURIComponent("${cookie.name.value}").replace("+"," ");
         if(ws!==undefined && ws.readyState!==WebSocket.CLOSED){
             writeResponse("WebSocket is already opened.");
             return;
