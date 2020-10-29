@@ -1,4 +1,4 @@
-package com.example.webchat.controller;
+package com.example.security;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -9,28 +9,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.example.webchat.service.WebchatService;
 
-@Controller
-public class MainController {
+public class CookieInterceptor extends HandlerInterceptorAdapter {
+
 	@Autowired
 	private WebchatService webchatService;
-
-	@RequestMapping(value={"/","/main"})
-	public String index(HttpServletResponse response,HttpServletRequest request,Model model) {
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
 		Cookie[] cookies = request.getCookies();
 		boolean check =false;
 		Cookie nameCookie = null;
 		if(cookies != null) {
 			for(Cookie cookie : cookies) {
 				if(cookie.getName().equals("name")) {
-					nameCookie = cookie;
+	//				nameCookie = cookie;
 					check = true;
 				}
 			}
@@ -50,7 +48,7 @@ public class MainController {
 			response.addCookie(cookie);
 		}
 		
-		//쿠키 있는경우
+		/*//쿠키 있는경우
 		String cookieValue = nameCookie.getValue();
 		String name="";
 		try {
@@ -59,15 +57,8 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		model.addAttribute("nickName",name);
-		return "/WEB-INF/views/main/index.jsp";
+		*/
+		return true;
 	}
-	
-	@ResponseBody
-	@RequestMapping("/hello")
-	public String hello() {
-		
-		String name = webchatService.getNickName();
-		return "<h1>"+name+"</h1>";
-	}
+
 }
