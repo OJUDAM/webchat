@@ -1,13 +1,11 @@
 package com.example.security;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -46,8 +44,8 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 		}
 		
 		
-		
-		return true;
+		response.sendRedirect(request.getContextPath()+"/main");
+		return false;
 	}
 
 }
