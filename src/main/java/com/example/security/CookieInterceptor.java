@@ -24,11 +24,9 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		Cookie[] cookies = request.getCookies();
 		boolean check =false;
-		Cookie nameCookie = null;
 		if(cookies != null) {
 			for(Cookie cookie : cookies) {
 				if(cookie.getName().equals("name")) {
-					nameCookie = cookie;
 					check = true;
 				}
 			}
@@ -44,7 +42,6 @@ public class CookieInterceptor extends HandlerInterceptorAdapter {
 				e.printStackTrace();
 			}
 			Cookie cookie = new Cookie("name",nickName);
-			nameCookie = cookie;
 			response.addCookie(cookie);
 		}
 		
