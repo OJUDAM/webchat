@@ -276,11 +276,12 @@ $(document).on("click", "input[name=addReply]", function(event){
 						console.error( "data.response"+response.message);
 						return ;
 					}
-					console.log("responsedata"+response.data);
+					console.log(response.data);
 					
 					fetchList();
 					selectedLi[0].reset();
 					selectedLi.children('div').hide();
+					fetchList();
 				},
 				error: function( jqXHR, status, e){
 					console.error( status + " : "+ jqXHR.responseText);
