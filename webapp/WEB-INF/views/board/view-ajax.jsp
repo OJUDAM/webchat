@@ -273,7 +273,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 				contentType: 'application/json',
 				success: function( response ){
 					if( response.result === "fail"){
-						console.error( response.message);
+						console.error( "data.response"+response.message);
 						return ;
 					}
 					console.log(response.data);

@@ -39,7 +39,6 @@ public class BoardController {
 		
 		if(vo.getGroupNo() != null) {
 			replyService.increaseGroupOrderNo( vo);
-			
 			vo.setUserName(replyService.getName(vo.getReplyNo()));
 		}
 		
