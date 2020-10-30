@@ -98,12 +98,15 @@
 		}
 	}
 	
-	var fetchList = function(){
+	var fetchList = function( mode ){
 		if( isEnd === true){
 			return ;
 		}
 		
 		var startNo = $("#list-guestbook li").last().data( "no" ) || 0;
+		if(mode === true){
+			startNo = 0;	
+		}
 		$.ajax({
 			url: "${pageContext.request.contextPath}/board/api/list?sno="+startNo+"&bno=${boardVo.no}",
 			type: "get",
@@ -179,59 +182,8 @@
 				$("#delete-no").val("");
 				$("#delete-password").val("");
 			}
-		});
-		
-		$( "#add-form").submit(function(event){
-			event.preventDefault();
+		});	
 			
-			var replyVo = {};
-			
-			replyVo.name = $("#input-name").val();
-			if( replyVo.name === ""){
-				messageBox("방명록에 글 남기기", "이름은 필수 입력 항목 입니다.", function(){
-					$("#input-name").focus();
-				});
-				return;
-			}
-			replyVo.password = $("#input-password").val();
-			if(replyVo.password === ""){
-				messageBox("방명록에 글 남기기","비밀번호는 필수 입력 항목 입니다.", function(){
-					$("#input-password").focus();
-				});
-				return;
-			}
-			
-			replyVo.message = $("#ta-message").val();
-			if( replyVo.message === ""){
-				messageBox("방명록에 글 남기기", "내용은 필수 입력 항목 입니다.", function(){
-					$( "#ta-message").focus();
-				});
-				return;
-			}
-			replyVo.boardNo = ${boardVo.no};
-			$.ajax({
-				url: "${pageContext.request.contextPath}/board/api/add",
-				type: "post",
-				dataType: "json",
-				data: JSON.stringify(replyVo),
-				contentType: 'application/json',
-				success: function( response ){
-					if( response.result === "fail"){
-						console.error( response.message);
-						return ;
-					}
-					render(response.data, true);
-					
-					$("#add-form")[0].reset();
-				},
-				error: function( jqXHR, status, e){
-					console.error( status + " : "+ jqXHR.responseText);
-				}
-			});
-			
-			
-		});
-		
 		//reply-ajax
 $(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
@@ -278,10 +230,9 @@ $(document).on("click", "input[name=addReply]", function(event){
 					}
 					console.log(response.data);
 					
-					fetchList();
+					fetchList(true);
 					selectedLi[0].reset();
 					selectedLi.children('div').hide();
-					fetchList();
 				},
 				error: function( jqXHR, status, e){
 					console.error( status + " : "+ jqXHR.responseText);
@@ -310,10 +261,10 @@ $(document).on("click", "input[name=addReply]", function(event){
 		});
 		
 		$("#btn-next").click(function(){
-			fetchList();
+			fetchList(false);
 		});
 		
-		fetchList();
+		fetchList(true);
 	});
 	
 </script>
