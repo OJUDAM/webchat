@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.webchat.exception.WebchatRepositoryException;
 import com.opencsv.CSVReader;
 
 
@@ -37,6 +38,7 @@ public class WebChatRepository {
 		} catch (IOException e) {
 			System.out.println("파일경로오류");
 			e.printStackTrace();
+			throw new WebchatRepositoryException(e.getMessage());
 		}finally {
 			try {
 				firstReader.close();
@@ -48,8 +50,6 @@ public class WebChatRepository {
 			}
 		}
 		
-		
-	
 		
 		map.put("firstName",firstName);
 		map.put("secondName", secondName);

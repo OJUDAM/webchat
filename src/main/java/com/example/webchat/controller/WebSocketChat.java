@@ -14,6 +14,7 @@ import javax.websocket.server.ServerEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.example.webchat.exception.WebchatRepositoryException;
 import com.example.webchat.service.WebchatService;
 
 @Controller
@@ -64,6 +65,7 @@ public class WebSocketChat {
 			basic.sendText(message.split(",")[1]+" : "+message.split(",")[0]);
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
+			throw new WebchatRepositoryException(e.getMessage());
 		}
 		sendAllSessionToMessage(session, message);
 	}
