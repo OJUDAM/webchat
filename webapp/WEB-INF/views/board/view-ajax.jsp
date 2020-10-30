@@ -276,7 +276,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 						console.error( "data.response"+response.message);
 						return ;
 					}
-					console.log(response.data);
+					console.log("responsedata"+response.data);
 					
 					fetchList();
 					selectedLi[0].reset();
