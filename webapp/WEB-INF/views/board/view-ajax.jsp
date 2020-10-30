@@ -185,7 +185,7 @@
 		});	
 			
 		//reply-ajax
-$(document).on("click", "input[name=addReply]", function(event){
+		$(document).on("click", "input[name=addReply]", function(event){
 			event.preventDefault();
 			var replyVo = {};
 			var selectedLi = $("#list-guestbook li[data-no='"+ $(this).data("no") +"'] form");
@@ -251,6 +251,7 @@ $(document).on("click", "input[name=addReply]", function(event){
 		$(document).on("click", "#add-reply", function(event){
 			event.preventDefault();
 			window.no = $(this).data("no");
+			console.log(no);
 			$("#list-guestbook li[data-no='"+ no +"']").children('div').show();
 		});
 		
