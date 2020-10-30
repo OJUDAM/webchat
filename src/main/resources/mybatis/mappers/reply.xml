@@ -60,7 +60,8 @@
 	]]>
 	<if test="startNo > 0">
 		<![CDATA[
-			and no > #{startNo} 
+			and no < #{startNo}
+			 and reply_no is not null 
 		]]>
 	</if>
 	<![CDATA[
